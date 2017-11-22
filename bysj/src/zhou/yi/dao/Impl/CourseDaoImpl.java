@@ -1,6 +1,7 @@
 package zhou.yi.dao.Impl;
 
 import java.util.ArrayList;
+import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Set;
 
@@ -34,6 +35,19 @@ public class CourseDaoImpl extends HibernateDaoSupport implements CourseDao {
 		}
 		List<Student> list = s.subList(begin, end);
 		return list;
+	}
+
+	@Override
+	public Set<Student> getStudent(Integer cid) {
+		Course course = findById(cid);
+		Set<Student> student = (Set<Student>) course.getStudents();
+		return student;
+	}
+
+	@Override
+	public List<Course> findAll() {
+		String hql = "from Course";
+		return getHibernateTemplate().find(hql);
 	}
 
 

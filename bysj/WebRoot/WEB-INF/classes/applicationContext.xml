@@ -49,7 +49,9 @@
 				<value>zhou/yi/domain/Classname.hbm.xml</value>
 				<value>zhou/yi/domain/Course.hbm.xml</value>
 				<value>zhou/yi/domain/Student.hbm.xml</value>
-				<value>zhou/yi/domain/Teacher.hbm.xml</value>		
+				<value>zhou/yi/domain/Teacher.hbm.xml</value>
+				<value>zhou/yi/domain/Question.hbm.xml</value>
+				<value>zhou/yi/domain/Comment.hbm.xml</value>		
 			</list>		
 		</property>
 	</bean>
@@ -76,6 +78,14 @@
 	</bean>
 	
 	<bean id="ClassnameDao" class="zhou.yi.dao.Impl.ClassnameDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	
+	<bean id="QuestionDao" class="zhou.yi.dao.Impl.QuestionDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	
+	<bean id="CommentDao" class="zhou.yi.dao.Impl.CommentDaoImpl">
 		<property name="sessionFactory" ref="sessionFactory"></property>
 	</bean>
 

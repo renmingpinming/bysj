@@ -15,12 +15,12 @@
 		<property name="email" column="email" length="50"></property>
 		
 		<!--映射关系  -->
-		<set name="classnames" lazy="false" cascade="save-update" inverse="true">
+		<set name="classnames" lazy="false" >
 			<key column="tno"></key>
 			<one-to-many class="zhou.yi.domain.Classname"/>
 		</set>
 		
-		<set name="courses" lazy="false" cascade="save-update" inverse="true">
+		<set name="courses" lazy="false" >
 			<key column="tno"></key>
 			<one-to-many class="zhou.yi.domain.Course"/>
 		</set>

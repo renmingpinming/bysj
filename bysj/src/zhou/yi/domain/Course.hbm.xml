@@ -11,7 +11,7 @@
 		<property name="introduce" column="introduce" ></property>
 		
 		<!--映射关系  -->
-		<many-to-one name="teacher" class="zhou.yi.domain.Teacher" column="tno">
+		<many-to-one name="teacher" cascade="save-update" class="zhou.yi.domain.Teacher" column="tno">
 		</many-to-one>
 		
 		<set name="students" table="connect" lazy="false" cascade="save-update" inverse="true">  

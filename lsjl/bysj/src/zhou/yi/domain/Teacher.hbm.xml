@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="zhou.yi.domain.Teacher" table="teacher">
+		<id name="tid" column="tid">
+			<generator class="native"/>
+		</id>
+		<property name="tname" column="tname" length="20"></property>
+		<property name="password" column="password" length="20"></property>
+		<property name="sex" column="sex" length="10"></property>
+		<property name="introduce" column="introduce" ></property>
+		<property name="telephone" column="telephone" length="20"></property>
+		<property name="email" column="email" length="50"></property>
+		
+		<!--映射关系  -->
+		<set name="classnames" lazy="false" cascade="save-update" inverse="true">
+			<key column="tno"></key>
+			<one-to-many class="zhou.yi.domain.Classname"/>
+		</set>
+		
+		<set name="courses" lazy="false" cascade="save-update" inverse="true">
+			<key column="tno"></key>
+			<one-to-many class="zhou.yi.domain.Course"/>
+		</set>
+
+	</class>
+</hibernate-mapping>

@@ -36,4 +36,17 @@ public class ClassnameDaoImpl extends HibernateDaoSupport implements ClassnameDa
 		return list;
 	}
 
+	@Override
+	public Set<Student> getStudent(Integer id) {
+		Classname classname = findById(id);
+		Set<Student> student = (Set<Student>) classname.getStudents();
+		return student;
+	}
+
+	@Override
+	public List<Classname> findAll() {
+		String hql = "from Classname";
+		return getHibernateTemplate().find(hql);
+	}
+
 }
