@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="zhou.yi.domain.Comment" table="comment">
+		<id name="id" column="id">
+			<generator class="native"/>
+		</id>
+		<property name="content" column="content" ></property>
+		<property name="create_time" column="create_time" type="date"></property>
+		<property name="author_id" column="author_id" length="12"></property>
+		<property name="question_id" column="question_id" length="12"></property>
+		
+		<!--映射关系  -->
+		<many-to-one name="question" class="zhou.yi.domain.Question" column="tno">
+		</many-to-one>
+
+	</class>
+</hibernate-mapping>

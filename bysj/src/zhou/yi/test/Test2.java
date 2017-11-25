@@ -19,7 +19,7 @@ import zhou.yi.domain.Student;
 
 public class Test2 {
 
-	@Test
+	//@Test
 	public void test() {
 		String conf = "applicationContext.xml";
 		ApplicationContext ac = new ClassPathXmlApplicationContext(conf);
@@ -36,7 +36,7 @@ public class Test2 {
 		}
 	}
 	
-	//@Test
+	@Test
 	public void test1() {
 		String conf = "applicationContext.xml";
 		ApplicationContext ac = new ClassPathXmlApplicationContext(conf);

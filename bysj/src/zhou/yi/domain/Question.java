@@ -10,12 +10,18 @@ public class Question {
 	private String content;
 	private Date create_time;
 	private Integer author_id;
-	
-	private Teacher teacher;
-	
-	private Student student;
+	private String author_name;
 	
 	private Set<Comment> comments = new LinkedHashSet<Comment>();
+
+	
+	public String getAuthor_name() {
+		return author_name;
+	}
+
+	public void setAuthor_name(String author_name) {
+		this.author_name = author_name;
+	}
 
 	public Integer getId() {
 		return id;
@@ -55,22 +61,6 @@ public class Question {
 
 	public void setAuthor_id(Integer author_id) {
 		this.author_id = author_id;
-	}
-
-	public Teacher getTeacher() {
-		return teacher;
-	}
-
-	public void setTeacher(Teacher teacher) {
-		this.teacher = teacher;
-	}
-
-	public Student getStudent() {
-		return student;
-	}
-
-	public void setStudent(Student student) {
-		this.student = student;
 	}
 
 	public Set<Comment> getComments() {

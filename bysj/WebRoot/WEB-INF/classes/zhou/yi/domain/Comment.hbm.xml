@@ -11,6 +11,7 @@
 		<property name="create_time" column="create_time" type="date"></property>
 		<property name="author_id" column="author_id" length="12"></property>
 		<property name="question_id" column="question_id" length="12"></property>
+		<property name="author_name" column="author_name" length="20"></property>
 		
 		<!--映射关系  -->
 		<many-to-one name="question" class="zhou.yi.domain.Question" column="tno">

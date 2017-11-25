@@ -10,13 +10,18 @@ public class Comment {
 	private Integer author_id;
 	private String content;
 	private Date create_time;
-	
-	private Teacher teacher;
-	
-	private Student student;
+	private String author_name;
 	
 	private Question question;
 	
+
+	public String getAuthor_name() {
+		return author_name;
+	}
+
+	public void setAuthor_name(String author_name) {
+		this.author_name = author_name;
+	}
 
 	public Question getQuestion() {
 		return question;
@@ -66,22 +71,6 @@ public class Comment {
 		this.create_time = create_time;
 	}
 
-	public Teacher getTeacher() {
-		return teacher;
-	}
 
-	public void setTeacher(Teacher teacher) {
-		this.teacher = teacher;
-	}
-
-	public Student getStudent() {
-		return student;
-	}
-
-	public void setStudent(Student student) {
-		this.student = student;
-	}
-
-	
 
 }

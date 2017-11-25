@@ -86,7 +86,7 @@ public class Test1 {
 		StudentDao studentDao = (StudentDao) ac.getBean("StudentDao");
 		CourseDao courseDao = (CourseDao) ac.getBean("CourseDao");
 		Student s = studentDao.findById(20140113);
-		Course c = courseDao.findById(1001);
+		Course c = courseDao.findById(1003);
 		//Course c1 = courseDao.findById(1002);
 		s.getCourses().add(c);
 		//s.getCourses().add(c1);
@@ -100,14 +100,14 @@ public class Test1 {
 		ApplicationContext ac = new ClassPathXmlApplicationContext(conf);
 		TeacherDao teacherDao = (TeacherDao) ac.getBean("TeacherDao");
 		CourseDao courseDao = (CourseDao) ac.getBean("CourseDao");
-		Course c = courseDao.findById(1002);
+		Course c = courseDao.findById(1003);
 		Teacher t = teacherDao.findById(20080101);
-		//t.getCourses().add(c);
-		//teacherDao.update(t);
-		Set<Course> co = t.getCourses();
+		t.getCourses().add(c);
+		teacherDao.update(t);
+		/*Set<Course> co = t.getCourses();
 		for (Course course : co) {
 			System.out.println("name:"+course.getCname());
-		}
+		}*/
 	}
 	
 	//@Test

@@ -13,7 +13,7 @@ public class TeacherDaoImpl extends HibernateDaoSupport implements TeacherDao {
 
 	@Override
 	public Teacher login(Teacher teacher) {
-		String hql = "from Teacher where sid = ? and password = ?";
+		String hql = "from Teacher where tid = ? and password = ?";
 		Object[] params = {teacher.getTid(),teacher.getPassword()};
 		List<Teacher> list = getHibernateTemplate().find(hql,params);
 		if(list.size()>0){
