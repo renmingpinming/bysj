@@ -1,5 +1,7 @@
 package zhou.yi.service.Impl;
 
+import java.util.List;
+
 import org.springframework.transaction.annotation.Transactional;
 
 import zhou.yi.dao.ClassnameDao;
@@ -17,6 +19,11 @@ public class ClassnameServiceImpl implements ClassnameService {
 	@Override
 	public Classname findById(Integer id) {
 		return classnameDao.findById(id);
+	}
+
+	@Override
+	public List<Classname> findAll() {
+		return classnameDao.findAll();
 	}
 
 }

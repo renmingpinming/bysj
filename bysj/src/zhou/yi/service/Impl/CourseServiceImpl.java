@@ -1,5 +1,7 @@
 package zhou.yi.service.Impl;
 
+import java.util.List;
+
 import org.springframework.transaction.annotation.Transactional;
 
 import zhou.yi.dao.CourseDao;
@@ -20,6 +22,12 @@ public class CourseServiceImpl implements CourseService {
 	@Override
 	public Course findById(Integer cid) {
 		return courseDao.findById(cid);
+	}
+
+
+	@Override
+	public List<Course> findAll() {
+		return courseDao.findAll();
 	}
 
 }

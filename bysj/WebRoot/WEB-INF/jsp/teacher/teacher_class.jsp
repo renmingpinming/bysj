@@ -48,8 +48,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">信息维护 <span class="caret"></span></a>
               <ul class="dropdown-menu">
-                <li><a href="#">个人信息</a></li>
-                <li><a href="#">修改密码</a></li>
+                <li><a href="<%= basePath %>teacherEditImformation.action?tid=<s:property value="#session.exitTeacher.tid"/>">个人信息</a></li>
+                <li><a href="<%= basePath %>teacherEditPassword.action">修改密码</a></li>
               </ul>
             </li>
             <li><a href="<%= basePath %>index.action">注销</a></li>
@@ -83,7 +83,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         <div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar">
           <div class="list-group">
             <a href="<%= basePath %>teacherListClass.action" class="list-group-item active">查看班级</a>
-            <a href="#" class="list-group-item">添加班级</a>
+            <a href="<%= basePath %>teacherAddClassList.action" class="list-group-item">添加班级</a>
           </div>
         </div><!--/.sidebar-offcanvas-->
       </div><!--/row-->

@@ -100,9 +100,10 @@ public class Test1 {
 		ApplicationContext ac = new ClassPathXmlApplicationContext(conf);
 		TeacherDao teacherDao = (TeacherDao) ac.getBean("TeacherDao");
 		CourseDao courseDao = (CourseDao) ac.getBean("CourseDao");
-		Course c = courseDao.findById(1003);
+		Course c = courseDao.findById(1005);
 		Teacher t = teacherDao.findById(20080101);
 		t.getCourses().add(c);
+		//t.setPassword("123");
 		teacherDao.update(t);
 		/*Set<Course> co = t.getCourses();
 		for (Course course : co) {

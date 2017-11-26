@@ -104,6 +104,7 @@
 	</bean>
 	
 	<bean id="TeacherService" class="zhou.yi.service.Impl.TeacherServiceImpl">
+		<property name="teacherDao" ref="TeacherDao"></property>
 	</bean>
 	
 	<!-- action -->
@@ -128,5 +129,28 @@
 	 class="zhou.yi.action.teacher.TeacherClassListStudentAction">
 		<property name="classnameService" ref="ClassnameService"></property>
 	</bean>
+	
+	<bean id="TeacherEditImformationAction" scope="prototype"
+	 class="zhou.yi.action.teacher.TeacherEditImformationAction">
+	 	<property name="teacherService" ref="TeacherService"></property>
+	 </bean>
+	 
+	 <bean id="TeacherEditPasswordAction" scope="prototype"
+	 class="zhou.yi.action.teacher.TeacherEditPasswordAction">
+	 	<property name="teacherService" ref="TeacherService"></property>
+	 	<property name="loginService" ref="LoginService"></property>
+	 </bean>
+	 
+	 <bean id="TeacherAddCourseAction" scope="prototype"
+	 class="zhou.yi.action.teacher.TeacherAddCourseAction">
+	 	<property name="courseService" ref="CourseService"></property>
+	 	<property name="teacherService" ref="TeacherService"></property>
+	 </bean>
+	 
+	  <bean id="TeacherAddClassAction" scope="prototype"
+	 class="zhou.yi.action.teacher.TeacherAddClassAction">
+	 	<property name="classnameService" ref="ClassnameService"></property>
+	 	<property name="teacherService" ref="TeacherService"></property>
+	 </bean>
 
 </beans>

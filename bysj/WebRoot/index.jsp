@@ -39,7 +39,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         <s:password name="password" class="form-control" placeholder="密码"/>
         <div class="checkbox" align="left">
           <label>
-            <s:radio name="ptype" list="{'部门','教师','学生'}"></s:radio>
+            <s:radio name="ptype" class="radio-inline" list="{'部门','教师','学生'}"></s:radio>
           </label>
         </div>
         <button class="btn btn-lg btn-primary btn-block" type="submit">登录</button>

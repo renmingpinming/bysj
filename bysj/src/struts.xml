@@ -34,6 +34,39 @@
 		<action name="teacherClassListStudent" class="TeacherClassListStudentAction">
 			<result name="success">/WEB-INF/jsp/teacher/teacher_class_list_student.jsp</result>
 		</action>
+		
+		<action name="teacherEditImformation" class="TeacherEditImformationAction" method="edit">
+			<result name="success">/WEB-INF/jsp/teacher/teacher_edit_imformation.jsp</result>
+		</action>
+		
+		<action name="teacherUpdateImformation" class="TeacherEditImformationAction" method="update">
+			<result name="success" type="redirectAction">teacher_main</result>
+		</action>
+		
+		<action name="teacherEditPassword" class="TeacherEditPasswordAction" method="edit">
+			<result name="success">/WEB-INF/jsp/teacher/teacher_edit_password.jsp</result>
+		</action>
+		
+		<action name="teacherUpdatePassword" class="TeacherEditPasswordAction" method="update">
+			<result name="success" type="redirectAction">teacher_main</result>
+			<result name="input" type="redirectAction">teacherEditPassword</result>
+		</action>
+		
+		<action name="teacherAddCourseList" class="TeacherAddCourseAction" method="list">
+			<result name="success">/WEB-INF/jsp/teacher/teacher_add_course.jsp</result>
+		</action>
+		
+		<action name="teacherAddCourseUpdate" class="TeacherAddCourseAction" method="update">
+			<result name="success" type="redirectAction">teacher_main</result>
+		</action>
+		
+		<action name="teacherAddClassList" class="TeacherAddClassAction" method="list">
+			<result name="success">/WEB-INF/jsp/teacher/teacher_add_class.jsp</result>
+		</action>
+		
+		<action name="teacherAddClassUpdate" class="TeacherAddClassAction" method="update">
+			<result name="success" type="redirectAction">teacher_main</result>
+		</action>
 
 	</package>
    
