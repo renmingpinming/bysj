@@ -4,6 +4,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import zhou.yi.dao.StudentDao;
 import zhou.yi.dao.TeacherDao;
+import zhou.yi.domain.Student;
 import zhou.yi.domain.Teacher;
 import zhou.yi.service.LoginService;
 
@@ -31,6 +32,16 @@ public class LoginServiceImpl implements LoginService {
 		teacher.setTid(tid);
 		teacher.setPassword(password);	
 		return teacherDao.login(teacher);
+	}
+
+
+	@Override
+	public Student login_student(String user_id, String password) {
+		int sid = Integer.parseInt(user_id);
+		Student student = new Student();
+		student.setSid(sid);
+		student.setPassword(password);
+		return studentDao.login(student);
 	}
 
 }

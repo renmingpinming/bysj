@@ -1,7 +1,6 @@
 package zhou.yi.action.teacher;
 
 import zhou.yi.domain.Teacher;
-import zhou.yi.service.LoginService;
 import zhou.yi.service.TeacherService;
 
 import com.opensymphony.xwork2.ActionSupport;
@@ -10,7 +9,6 @@ import com.opensymphony.xwork2.ModelDriven;
 public class TeacherEditPasswordAction extends ActionSupport implements ModelDriven<Teacher>{
 	
 	private TeacherService teacherService;
-	private LoginService loginService;
 	private String oldpassword;
 	private String newpassword1;
 	private String newpassword2;
@@ -19,10 +17,6 @@ public class TeacherEditPasswordAction extends ActionSupport implements ModelDri
 	@Override
 	public Teacher getModel() {
 		return teacher;
-	}
-
-	public void setLoginService(LoginService loginService) {
-		this.loginService = loginService;
 	}
 
 	public void setTeacherService(TeacherService teacherService) {

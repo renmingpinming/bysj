@@ -43,7 +43,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
           	<li><a href="<%= basePath %>teacher_main.action">主页</a></li>
-            <li><a href="<%= basePath %>teacherListClass.action">分组管理</a></li>
+            <li  class="active"><a href="<%= basePath %>teacherListClass.action">分组管理</a></li>
             <li><a href="<%= basePath %>teacherListCourse.action">课程管理</a></li>
             <li><a href="#">作业管理</a></li>
             <li><a href="#">文章发布</a></li>
@@ -70,7 +70,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
        <s:hidden name="tid" value="%{#session.exitTeacher.tid}"/>
        	<tr>
        		<td>选择班级：</td>
-       		<td><s:select name="id" list="list" class="radio-inline" listKey="id" listValue="name" headerValue="请选择课程"/> </td>
+       		<td><s:select name="id" list="list" class="radio-inline" listKey="id" listValue="name" headerKey="0" headerValue="请选择班级" ></s:select> </td>
        	</tr>
        </table>
        <button class="btn btn-lg btn-primary btn-block" type="submit">添加</button>

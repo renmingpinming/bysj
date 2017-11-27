@@ -13,9 +13,14 @@
 		<action name="teacher_main">
 			<result>/WEB-INF/jsp/teacher/teacher_main.jsp</result>
 		</action>
+		
+		<action name="student_main">
+			<result>/WEB-INF/jsp/student/student_main.jsp</result>
+		</action>
 	
 		<action name="login" class="LoginAction">
-			<result name="success_teacher">/WEB-INF/jsp/teacher/teacher_main.jsp</result>
+			<result name="success_teacher" type="redirectAction">teacher_main</result>
+			<result name="success_student" type="redirectAction">student_main</result>
 			<result name="input">/index.jsp</result>
 		</action>
 		
@@ -66,6 +71,34 @@
 		
 		<action name="teacherAddClassUpdate" class="TeacherAddClassAction" method="update">
 			<result name="success" type="redirectAction">teacher_main</result>
+		</action>
+		
+		<action name="studentListCourse" class="StudentListCourseAction">
+			<result name="success">/WEB-INF/jsp/student/student_course.jsp</result>
+		</action>
+		
+		<action name="studentAddCourseList" class="StudentAddCourseAction" method="list">
+			<result name="success">/WEB-INF/jsp/student/student_add_course.jsp</result>
+		</action>
+		
+		<action name="studentAddCourseUpdate" class="StudentAddCourseAction" method="update">
+			<result name="success" type="redirectAction">student_main</result>
+		</action>
+		
+		<action name="studentEditImformation" class="StudentEditImformationAction" method="edit">
+			<result name="success">/WEB-INF/jsp/student/student_edit_imformation.jsp</result>
+		</action>
+		
+		<action name="studentUpdateImformation" class="StudentEditImformationAction" method="update">
+			<result name="success" type="redirectAction">student_main</result>
+		</action>
+		
+		<action name="studentEditPassword" class="StudentEditPasswordAction" method="edit">
+			<result name="success">/WEB-INF/jsp/student/student_edit_password.jsp</result>
+		</action>
+		
+		<action name="studentUpdatePassword" class="StudentEditPasswordAction" method="update">
+			<result name="success" type="redirectAction">student_main</result>
 		</action>
 
 	</package>

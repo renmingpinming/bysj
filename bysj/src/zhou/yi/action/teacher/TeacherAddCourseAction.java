@@ -59,8 +59,6 @@ public class TeacherAddCourseAction extends ActionSupport implements ModelDriven
 		teacher = teacherService.findById(teacher.getTid());
 		teacher.getCourses().add(course);
 		teacherService.update(teacher);
-		System.out.println(id);
-		System.out.println(teacher.getTid());
 		return "success";
 	}
 
