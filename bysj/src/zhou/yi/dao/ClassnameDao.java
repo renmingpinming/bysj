@@ -16,4 +16,10 @@ public interface ClassnameDao {
 	public Set<Student> getStudent(Integer id);
 	
 	public List<Classname> findAll();
+
+	public int findCount();
+
+	public List<Classname> findByPage(int begin, int pageSize);
+
+	public void saveClassname(Classname classname);
 }

@@ -5,6 +5,7 @@ import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Set;
 
+import org.hibernate.criterion.DetachedCriteria;
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 
 import zhou.yi.dao.CourseDao;
@@ -48,6 +49,28 @@ public class CourseDaoImpl extends HibernateDaoSupport implements CourseDao {
 	public List<Course> findAll() {
 		String hql = "from Course";
 		return getHibernateTemplate().find(hql);
+	}
+
+	@Override
+	public int findCount() {
+		String hql = "select count(*) from Course";
+		List<Long> list =  getHibernateTemplate().find(hql);
+		if(list.size()>0){
+			return list.get(0).intValue();
+		}
+		return 0;
+	}
+
+	@Override
+	public List<Course> findByPage(int begin, int pageSize) {
+		DetachedCriteria criteria = DetachedCriteria.forClass(Course.class);
+		List<Course> list = getHibernateTemplate().findByCriteria(criteria, begin, pageSize);
+		return list;
+	}
+
+	@Override
+	public void saveCourse(Course course) {
+		getHibernateTemplate().save(course);
 	}
 
 

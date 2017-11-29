@@ -51,7 +51,8 @@
 				<value>zhou/yi/domain/Student.hbm.xml</value>
 				<value>zhou/yi/domain/Teacher.hbm.xml</value>
 				<value>zhou/yi/domain/Question.hbm.xml</value>
-				<value>zhou/yi/domain/Comment.hbm.xml</value>		
+				<value>zhou/yi/domain/Comment.hbm.xml</value>
+				<value>zhou/yi/domain/Department.hbm.xml</value>		
 			</list>		
 		</property>
 	</bean>
@@ -89,10 +90,15 @@
 		<property name="sessionFactory" ref="sessionFactory"></property>
 	</bean>
 	
+	<bean id="DepartmentDao" class="zhou.yi.dao.Impl.DepartmentDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	
 	<!-- service -->
 	<bean id="LoginService" class="zhou.yi.service.Impl.LoginServiceImpl">
 		<property name="teacherDao" ref="TeacherDao"></property>
 		<property name="studentDao" ref="StudentDao"></property>
+		<property name="departmentDao" ref="DepartmentDao"></property>
 	</bean>
 	
 	<bean id="CourseService" class="zhou.yi.service.Impl.CourseServiceImpl">
@@ -176,5 +182,51 @@
 	 class="zhou.yi.action.student.StudentEditPasswordAction">
 	 	<property name="studentService" ref="StudentService"></property>
 	</bean>
+	
+	<bean id="DepartmentListAction" scope="prototype"
+	 class="zhou.yi.action.department.DepartmentListAction">
+	</bean>
+	
+	<bean id="DepartmentCourseListAction" scope="prototype"
+	 class="zhou.yi.action.department.DepartmentCourseListAction">
+	 	<property name="courseService" ref="CourseService"></property>
+	</bean>
+	
+	<bean id="DepartmentCourseAddAction" scope="prototype"
+	 class="zhou.yi.action.department.DepartmentCourseAddAction">
+	 	<property name="courseService" ref="CourseService"></property>
+	</bean>
+	
+	<bean id="DepartmentClassListAction" scope="prototype"
+	 class="zhou.yi.action.department.DepartmentClassListAction">
+	 	<property name="classnameService" ref="ClassnameService"></property>
+	</bean>
+	
+	<bean id="DepartmentClassAddAction" scope="prototype"
+	 class="zhou.yi.action.department.DepartmentClassAddAction">
+	 	<property name="classnameService" ref="ClassnameService"></property>
+	</bean>
+	
+	<bean id="DepartmentStudentListAction" scope="prototype"
+	 class="zhou.yi.action.department.DepartmentStudentListAction">
+	 	<property name="studentService" ref="StudentService"></property>
+	</bean>
+	
+	<bean id="DepartmentStudentAddAction" scope="prototype"
+	 class="zhou.yi.action.department.DepartmentStudentAddAction">
+	 	<property name="studentService" ref="StudentService"></property>
+	</bean>
+	
+	<bean id="DepartmentTeacherListAction" scope="prototype"
+	 class="zhou.yi.action.department.DepartmentTeacherListAction">
+	 	<property name="teacherService" ref="TeacherService"></property>
+	</bean>
+	
+	<bean id="DepartmentTeacherAddAction" scope="prototype"
+	 class="zhou.yi.action.department.DepartmentTeacherAddAction">
+	 	<property name="teacherService" ref="TeacherService"></property>
+	</bean>
+	
+
 
 </beans>

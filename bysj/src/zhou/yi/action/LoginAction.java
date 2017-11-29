@@ -3,6 +3,7 @@ package zhou.yi.action;
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 
+import zhou.yi.domain.Department;
 import zhou.yi.domain.Student;
 import zhou.yi.domain.Teacher;
 import zhou.yi.service.LoginService;
@@ -76,6 +77,16 @@ public class LoginAction extends ActionSupport {
 			}else{
 				ActionContext.getContext().getSession().put("exitStudent", exitStudent);
 				return "success_student";
+			}
+		}
+		else if(ptype.equals("部门")){
+			Department exitDepartment = loginService.login_department(user_id,password);
+			if(exitDepartment==null){
+				this.addActionError("用户名或密码错误！");
+				return "input";
+			}else{
+				ActionContext.getContext().getSession().put("exitDepartment", exitDepartment);
+				return "success_department";
 			}
 		}
 		else{

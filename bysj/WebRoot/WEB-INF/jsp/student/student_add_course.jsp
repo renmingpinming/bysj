@@ -73,7 +73,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
        		<td><s:select name="cid" list="list" class="radio-inline" listKey="cid" listValue="cname" headerKey="0" headerValue="请选择课程"/> </td>
        	</tr>
        </table>
-       <button class="btn btn-lg btn-primary btn-block" type="submit">添加</button>
+       <button class="btn btn-lg btn-primary center-block" type="submit">添加</button>
      </s:form>
   </div>
 

@@ -18,4 +18,10 @@ public interface StudentDao {
 	public Student findById(Integer sid);
 	
 	public List<Course> getCourse(Integer sid);
+
+	public int findCount();
+
+	public List<Student> findByPage(int begin, int pageSize);
+
+
 }

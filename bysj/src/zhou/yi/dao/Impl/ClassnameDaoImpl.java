@@ -4,10 +4,12 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
+import org.hibernate.criterion.DetachedCriteria;
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 
 import zhou.yi.dao.ClassnameDao;
 import zhou.yi.domain.Classname;
+import zhou.yi.domain.Course;
 import zhou.yi.domain.Student;
 
 public class ClassnameDaoImpl extends HibernateDaoSupport implements ClassnameDao {
@@ -47,6 +49,28 @@ public class ClassnameDaoImpl extends HibernateDaoSupport implements ClassnameDa
 	public List<Classname> findAll() {
 		String hql = "from Classname";
 		return getHibernateTemplate().find(hql);
+	}
+
+	@Override
+	public int findCount() {
+		String hql = "select count(*) from Classname";
+		List<Long> list =  getHibernateTemplate().find(hql);
+		if(list.size()>0){
+			return list.get(0).intValue();
+		}
+		return 0;
+	}
+
+	@Override
+	public List<Classname> findByPage(int begin, int pageSize) {
+		DetachedCriteria criteria = DetachedCriteria.forClass(Classname.class);
+		List<Classname> list = getHibernateTemplate().findByCriteria(criteria, begin, pageSize);
+		return list;
+	}
+
+	@Override
+	public void saveClassname(Classname classname) {
+		getHibernateTemplate().save(classname);
 	}
 
 }

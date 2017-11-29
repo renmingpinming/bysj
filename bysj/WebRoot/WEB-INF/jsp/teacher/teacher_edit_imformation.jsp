@@ -95,7 +95,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
        		<td><s:textarea name="introduce" class="form-control" value="%{model.introduce}"/> </td>   		
        	</tr>
        </table>
-       <button class="btn btn-lg btn-primary btn-block" type="submit">提交</button>
+       <button class="btn btn-lg btn-primary center-block" type="submit">提交</button>
      </s:form>
   </div>
   </body>

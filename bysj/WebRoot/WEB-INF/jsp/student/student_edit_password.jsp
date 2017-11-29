@@ -84,7 +84,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
        		<td><s:password name="newpassword2" class="form-control"/></td>
        	</tr>
        </table>
-       <button class="btn btn-lg btn-primary btn-block" type="submit">修改</button>
+       <button class="btn btn-lg btn-primary center-block" type="submit">修改</button>
      </s:form>
   </div>
 

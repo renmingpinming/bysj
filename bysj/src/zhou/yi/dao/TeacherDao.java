@@ -10,7 +10,7 @@ public interface TeacherDao {
 
 	public Teacher login(Teacher teacher);
 
-	public void saveStu(Teacher teacher);
+	public void saveTea(Teacher teacher);
 	
 	public void update(Teacher teacher);
 	
@@ -21,4 +21,8 @@ public interface TeacherDao {
 	public List<Classname> findClassname(Integer tid);
 	
 	public List<Course> findCourse(Integer tid);
+
+	public int findCount();
+
+	public List<Teacher> findByPage(int begin, int pageSize);
 }

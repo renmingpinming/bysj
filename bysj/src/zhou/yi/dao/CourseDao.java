@@ -16,4 +16,10 @@ public interface CourseDao {
 	public Set<Student> getStudent(Integer cid);
 	
 	public List<Course> findAll();
+
+	public int findCount();
+
+	public List<Course> findByPage(int begin, int pageSize);
+
+	public void saveCourse(Course course);
 }

@@ -2,11 +2,13 @@ package zhou.yi.dao.Impl;
 
 import java.util.List;
 
+import org.hibernate.criterion.DetachedCriteria;
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 
 import zhou.yi.dao.TeacherDao;
 import zhou.yi.domain.Classname;
 import zhou.yi.domain.Course;
+import zhou.yi.domain.Student;
 import zhou.yi.domain.Teacher;
 
 public class TeacherDaoImpl extends HibernateDaoSupport implements TeacherDao {
@@ -24,7 +26,7 @@ public class TeacherDaoImpl extends HibernateDaoSupport implements TeacherDao {
 	}
 
 	@Override
-	public void saveStu(Teacher teacher) {
+	public void saveTea(Teacher teacher) {
 		getHibernateTemplate().save(teacher);
 	}
 
@@ -55,6 +57,23 @@ public class TeacherDaoImpl extends HibernateDaoSupport implements TeacherDao {
 		Teacher teacher = findById(tid);
 		List<Course> courses = (List<Course>) teacher.getCourses();
 		return courses;
+	}
+
+	@Override
+	public int findCount() {
+		String hql = "select count(*) from Teacher";
+		List<Long> list =  getHibernateTemplate().find(hql);
+		if(list.size()>0){
+			return list.get(0).intValue();
+		}
+		return 0;
+	}
+
+	@Override
+	public List<Teacher> findByPage(int begin, int pageSize) {
+		DetachedCriteria criteria = DetachedCriteria.forClass(Teacher.class);
+		List<Teacher> list = getHibernateTemplate().findByCriteria(criteria, begin, pageSize);
+		return list;
 	}
 
 }

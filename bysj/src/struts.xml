@@ -17,10 +17,15 @@
 		<action name="student_main">
 			<result>/WEB-INF/jsp/student/student_main.jsp</result>
 		</action>
+		
+		<action name="department_main">
+			<result>/WEB-INF/jsp/department/department_main.jsp</result>
+		</action>
 	
 		<action name="login" class="LoginAction">
 			<result name="success_teacher" type="redirectAction">teacher_main</result>
 			<result name="success_student" type="redirectAction">student_main</result>
+			<result name="success_department" type="redirectAction">department_main</result>
 			<result name="input">/index.jsp</result>
 		</action>
 		
@@ -99,6 +104,70 @@
 		
 		<action name="studentUpdatePassword" class="StudentEditPasswordAction" method="update">
 			<result name="success" type="redirectAction">student_main</result>
+		</action>
+		
+		<action name="departmentCourse" class="DepartmentListAction" method="course">
+			<result name="course">/WEB-INF/jsp/department/department_course.jsp</result>
+		</action>
+		
+		<action name="departmentCourseList" class="DepartmentCourseListAction">
+			<result name="success">/WEB-INF/jsp/department/department_course_list.jsp</result>
+		</action>
+		
+		<action name="departmentCourseAddList" class="DepartmentListAction" method="courseAddList">
+			<result name="courseAddList">/WEB-INF/jsp/department/department_course_add.jsp</result>
+		</action>
+		
+		<action name="departmentCourseAdd" class="DepartmentCourseAddAction">
+			<result name="success" type="redirectAction">department_main</result>
+		</action>
+		
+		<action name="departmentClass" class="DepartmentListAction" method="classname">
+			<result name="classname">/WEB-INF/jsp/department/department_class.jsp</result>
+		</action>
+		
+		<action name="departmentClassList" class="DepartmentClassListAction">
+			<result name="success">/WEB-INF/jsp/department/department_class_list.jsp</result>
+		</action>
+		
+		<action name="departmentClassAddList" class="DepartmentListAction" method="classnameAddList">
+			<result name="classnameAddList">/WEB-INF/jsp/department/department_class_add.jsp</result>
+		</action>
+		
+		<action name="departmentClassAdd" class="DepartmentClassAddAction">
+			<result name="success" type="redirectAction">department_main</result>
+		</action>
+		
+		<action name="departmentStudent" class="DepartmentListAction" method="student">
+			<result name="student">/WEB-INF/jsp/department/department_student.jsp</result>
+		</action>
+		
+		<action name="departmentStudentList" class="DepartmentStudentListAction">
+			<result name="success">/WEB-INF/jsp/department/department_student_list.jsp</result>
+		</action>
+		
+		<action name="departmentStudentAddList" class="DepartmentListAction" method="studentAddList">
+			<result name="studentAddList">/WEB-INF/jsp/department/department_student_add.jsp</result>
+		</action>
+		
+		<action name="departmentStudentAdd" class="DepartmentStudentAddAction">
+			<result name="success" type="redirectAction">department_main</result>
+		</action>
+		
+		<action name="departmentTeacher" class="DepartmentListAction" method="teacher">
+			<result name="teacher">/WEB-INF/jsp/department/department_teacher.jsp</result>
+		</action>
+		
+		<action name="departmentTeacherList" class="DepartmentTeacherListAction">
+			<result name="success">/WEB-INF/jsp/department/department_teacher_list.jsp</result>
+		</action>
+		
+		<action name="departmentTeacherAddList" class="DepartmentListAction" method="teacherAddList">
+			<result name="teacherAddList">/WEB-INF/jsp/department/department_teacher_add.jsp</result>
+		</action>
+		
+		<action name="departmentTeacherAdd" class="DepartmentTeacherAddAction">
+			<result name="success" type="redirectAction">department_main</result>
 		</action>
 
 	</package>
