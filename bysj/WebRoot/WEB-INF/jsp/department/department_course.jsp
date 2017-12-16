@@ -67,7 +67,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
         <div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar">
           <div class="list-group">
-            <a href="<%= basePath %>departmentCourseList.action" class="list-group-item">编辑课程</a>
+            <a href="<%= basePath %>departmentCourseList.action" class="list-group-item">删除课程</a>
             <a href="<%= basePath %>departmentCourseAddList.action" class="list-group-item">添加课程</a>
           </div>
         </div><!--/.sidebar-offcanvas-->

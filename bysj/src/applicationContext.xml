@@ -227,6 +227,26 @@
 	 	<property name="teacherService" ref="TeacherService"></property>
 	</bean>
 	
+	<bean id="DepartmentDeleteStudentAction" scope="prototype"
+	 class="zhou.yi.action.department.DepartmentDeleteStudentAction">
+	 	<property name="studentService" ref="StudentService"></property>
+	</bean>
+	
+	<bean id="DepartmentDeleteTeacherAction" scope="prototype"
+	 class="zhou.yi.action.department.DepartmentDeleteTeacherAction">
+	 	<property name="teacherService" ref="TeacherService"></property>
+	</bean>
+	
+	<bean id="DepartmentDeleteCourseAction" scope="prototype"
+	 class="zhou.yi.action.department.DepartmentDeleteCourseAction">
+	 	<property name="courseService" ref="CourseService"></property>
+	</bean>
+	
+	<bean id="DepartmentDeleteClassnameAction" scope="prototype"
+	 class="zhou.yi.action.department.DepartmentDeleteClassnameAction">
+	 	<property name="classnameService" ref="ClassnameService"></property>
+	</bean>
+	
 
 
 </beans>

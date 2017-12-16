@@ -15,4 +15,6 @@ public interface ClassnameService {
 
 	void saveClassname(Classname classname);
 
+	void deleteClassname(Classname classname);
+
 }

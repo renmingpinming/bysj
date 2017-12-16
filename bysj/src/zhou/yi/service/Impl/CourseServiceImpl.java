@@ -56,6 +56,12 @@ public class CourseServiceImpl implements CourseService {
 	}
 
 
+	@Override
+	public void deleteCourse(Course course) {
+		courseDao.deleteCourse(course);
+	}
+
+
 
 
 }

@@ -1,5 +1,6 @@
 package zhou.yi.domain;
 
+import java.sql.Timestamp;
 import java.util.Date;
 import java.util.LinkedHashSet;
 import java.util.Set;
@@ -8,7 +9,7 @@ public class Question {
 	private Integer id;
 	private String title;
 	private String content;
-	private Date create_time;
+	private Timestamp create_time;
 	private Integer author_id;
 	private String author_name;
 	
@@ -47,11 +48,13 @@ public class Question {
 		this.content = content;
 	}
 
-	public Date getCreate_time() {
+
+
+	public Timestamp getCreate_time() {
 		return create_time;
 	}
 
-	public void setCreate_time(Date create_time) {
+	public void setCreate_time(Timestamp create_time) {
 		this.create_time = create_time;
 	}
 

@@ -70,7 +70,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						<td align="center">电话</td>
 						<td align="center">邮箱</td>
 						<td align="center">简介</td>
-						<td align="center">编辑</td>
 						<td align="center">删除</td>
 					</tr>
 				</thead>
@@ -83,8 +82,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						<td align="center"><s:property value="#d.telephone"/></td>
 						<td align="center"><s:property value="#d.email"/></td>
 						<td align="center"><s:property value="#d.introduce"/></td>
-						<td align="center"><a href="#">编辑</a></td>
-						<td align="center"><a href="#">删除</a></td>
+						<td align="center"><a href="<%= basePath %>departmentTeacherDelete?tid=<s:property value="#d.tid"/>">删除</a></td>
 					</tr>
 				</s:iterator> 
 				</tbody>
@@ -118,7 +116,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
         <div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar">
           <div class="list-group">
-            <a href="<%= basePath %>departmentTeacherList.action" class="list-group-item active">编辑教师</a>
+            <a href="<%= basePath %>departmentTeacherList.action" class="list-group-item active">删除教师</a>
             <a href="<%= basePath %>departmentTeacherAddList.action" class="list-group-item">添加教师</a>
           </div>
         </div><!--/.sidebar-offcanvas-->

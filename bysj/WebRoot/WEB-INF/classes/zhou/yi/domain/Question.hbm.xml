@@ -9,7 +9,7 @@
 		</id>
 		<property name="title" column="title" length="100"></property>
 		<property name="content" column="content" ></property>
-		<property name="create_time" column="create_time" type="date"></property>
+		<property name="create_time" column="create_time" type="timestamp"></property>
 		<property name="author_id" column="author_id" length="12"></property>
 		<property name="author_name" column="author_name" length="20"></property>
 		

@@ -13,7 +13,7 @@
 		<many-to-one name="teacher" cascade="save-update" class="zhou.yi.domain.Teacher" column="tno">
 		</many-to-one>
 		
-		<set name="students" lazy="false" cascade="save-update" inverse="true">
+		<set name="students" lazy="false">
 			<key column="clno"></key>
 			<one-to-many class="zhou.yi.domain.Student"/>
 		</set>

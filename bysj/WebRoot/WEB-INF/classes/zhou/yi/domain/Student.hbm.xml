@@ -14,7 +14,7 @@
 		<property name="email" column="email" length="50"></property>
 		
 		<!--映射关系  -->
-		<many-to-one name="classname" class="zhou.yi.domain.Classname" column="clno">
+		<many-to-one name="classname" cascade="save-update" class="zhou.yi.domain.Classname" column="clno">
 		</many-to-one>
 
 		<set name="courses" table="connect" lazy="false" >  

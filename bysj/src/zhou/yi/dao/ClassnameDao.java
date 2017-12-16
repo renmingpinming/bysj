@@ -22,4 +22,6 @@ public interface ClassnameDao {
 	public List<Classname> findByPage(int begin, int pageSize);
 
 	public void saveClassname(Classname classname);
+	
+	public void deleteClassname(Classname classname);
 }

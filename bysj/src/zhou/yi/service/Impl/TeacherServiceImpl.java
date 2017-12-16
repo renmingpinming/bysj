@@ -49,4 +49,9 @@ public class TeacherServiceImpl implements TeacherService {
 		teacherDao.saveTea(teacher);
 	}
 
+	@Override
+	public void deleteTeacher(Teacher teacher) {
+		teacherDao.delete(teacher);
+	}
+
 }

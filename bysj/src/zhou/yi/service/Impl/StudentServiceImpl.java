@@ -49,5 +49,10 @@ public class StudentServiceImpl implements StudentService {
 	public void saveStudent(Student student) {
 		studentDao.saveStu(student);
 	}
+
+	@Override
+	public void deleteStudent(Student student) {
+		studentDao.delete(student);
+	}
 	
 }

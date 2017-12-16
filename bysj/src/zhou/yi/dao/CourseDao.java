@@ -22,4 +22,6 @@ public interface CourseDao {
 	public List<Course> findByPage(int begin, int pageSize);
 
 	public void saveCourse(Course course);
+
+	public void deleteCourse(Course course);
 }

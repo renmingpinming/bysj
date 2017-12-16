@@ -169,6 +169,22 @@
 		<action name="departmentTeacherAdd" class="DepartmentTeacherAddAction">
 			<result name="success" type="redirectAction">department_main</result>
 		</action>
+		
+		<action name="departmentStudentDelete" class="DepartmentDeleteStudentAction">
+			<result name="success" type="redirectAction">department_main</result>
+		</action>
+		
+		<action name="departmentTeacherDelete" class="DepartmentDeleteTeacherAction">
+			<result name="success" type="redirectAction">department_main</result>
+		</action>
+		
+		<action name="departmentCourseDelete" class="DepartmentDeleteCourseAction">
+			<result name="success" type="redirectAction">department_main</result>
+		</action>
+		
+		<action name="departmentClassnameDelete" class="DepartmentDeleteClassnameAction">
+			<result name="success" type="redirectAction">department_main</result>
+		</action>
 
 	</package>
    

@@ -50,4 +50,9 @@ public class ClassnameServiceImpl implements ClassnameService {
 		classnameDao.saveClassname(classname);
 	}
 
+	@Override
+	public void deleteClassname(Classname classname) {
+		classnameDao.deleteClassname(classname);
+	}
+
 }

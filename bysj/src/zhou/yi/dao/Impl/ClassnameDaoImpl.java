@@ -73,4 +73,9 @@ public class ClassnameDaoImpl extends HibernateDaoSupport implements ClassnameDa
 		getHibernateTemplate().save(classname);
 	}
 
+	@Override
+	public void deleteClassname(Classname classname) {
+		getHibernateTemplate().delete(classname);
+	}
+
 }

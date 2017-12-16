@@ -66,7 +66,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<tr>
 						<td align="center">班级ID</td>
 						<td align="center">班级名</td>
-						<td align="center">编辑</td>
 						<td align="center">删除</td>
 					</tr>
 				</thead>
@@ -75,8 +74,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<tr>
 						<td align="center"><s:property value="#d.id"/></td>
 						<td align="center"><s:property value="#d.name"/></td>
-						<td align="center"><a href="#">编辑</a></td>
-						<td align="center"><a href="#">删除</a></td>
+						<td align="center"><a href="<%= basePath %>departmentClassnameDelete.action?id=<s:property value="#d.id"/>">删除</a></td>
 					</tr>
 				</s:iterator> 
 				</tbody>
@@ -110,7 +108,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
         <div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar">
           <div class="list-group">
-            <a href="<%= basePath %>departmentClassList.action" class="list-group-item active">编辑班级</a>
+            <a href="<%= basePath %>departmentClassList.action" class="list-group-item active">删除班级</a>
             <a href="<%= basePath %>departmentClassAddList.action" class="list-group-item">添加班级</a>
           </div>
         </div><!--/.sidebar-offcanvas-->

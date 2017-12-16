@@ -73,5 +73,10 @@ public class CourseDaoImpl extends HibernateDaoSupport implements CourseDao {
 		getHibernateTemplate().save(course);
 	}
 
+	@Override
+	public void deleteCourse(Course course) {
+		getHibernateTemplate().delete(course);
+	}
+
 
 }
