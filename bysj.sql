@@ -26,7 +26,7 @@ CREATE TABLE `classname` (
   PRIMARY KEY (`id`),
   KEY `FKFF77A803BAD1FA91` (`tno`),
   CONSTRAINT `FKFF77A803BAD1FA91` FOREIGN KEY (`tno`) REFERENCES `teacher` (`tid`)
-) ENGINE=InnoDB AUTO_INCREMENT=1005 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=1004 DEFAULT CHARSET=utf8;
 
 /*Data for the table `classname` */
 
@@ -47,11 +47,11 @@ CREATE TABLE `comment` (
   PRIMARY KEY (`id`),
   KEY `FK38A5EE5FBDB33EE1` (`tno`),
   CONSTRAINT `FK38A5EE5FBDB33EE1` FOREIGN KEY (`tno`) REFERENCES `question` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=1007 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=1012 DEFAULT CHARSET=utf8;
 
 /*Data for the table `comment` */
 
-insert  into `comment`(`id`,`question_id`,`author_id`,`content`,`create_time`,`tno`,`author_name`) values (1001,1001,NULL,'2','2017-12-16 19:46:44',NULL,NULL),(1002,1001,NULL,'3','2017-12-16 19:46:44',NULL,NULL),(1003,NULL,NULL,'woshi','2017-12-16 19:46:44',NULL,NULL),(1004,1001,NULL,'nihao','2017-12-16 19:46:44',1001,NULL),(1005,1001,NULL,'2222','2017-12-16 19:59:54',1001,NULL),(1006,1001,NULL,'3333','2017-12-16 20:07:25',1001,NULL);
+insert  into `comment`(`id`,`question_id`,`author_id`,`content`,`create_time`,`tno`,`author_name`) values (1001,1001,20080101,'2','2017-12-16 19:46:44',NULL,'bbb'),(1002,1001,20080101,'3','2017-12-16 19:46:44',NULL,'bbb'),(1003,NULL,NULL,'woshi','2017-12-16 19:46:44',NULL,NULL),(1004,1001,20080101,'nihao','2017-12-16 19:46:44',1001,'bbb'),(1005,1001,20080101,'2222','2017-12-16 19:59:54',1001,'bbb'),(1006,1001,20080101,'3333','2017-12-16 20:07:25',1001,'bbb'),(1007,1010,20080101,'1','2017-12-17 19:25:02',1010,'bbb'),(1008,1010,NULL,'他他他','2017-12-17 19:33:09',1010,''),(1009,1010,20080101,'sss','2017-12-17 19:42:51',1010,'bbb'),(1010,1009,NULL,'111','2017-12-17 19:51:16',1009,''),(1011,1009,20080101,'222','2017-12-17 19:51:59',1009,'bbb');
 
 /*Table structure for table `connect` */
 
@@ -66,7 +66,7 @@ CREATE TABLE `connect` (
   KEY `cid` (`cid`),
   CONSTRAINT `connect_ibfk_1` FOREIGN KEY (`sid`) REFERENCES `student` (`sid`),
   CONSTRAINT `connect_ibfk_2` FOREIGN KEY (`cid`) REFERENCES `course` (`cid`)
-) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
 
 /*Data for the table `connect` */
 
@@ -101,11 +101,11 @@ CREATE TABLE `course` (
   PRIMARY KEY (`cid`),
   KEY `FKAF42E01BBAD1FA91` (`tno`),
   CONSTRAINT `FKAF42E01BBAD1FA91` FOREIGN KEY (`tno`) REFERENCES `teacher` (`tid`)
-) ENGINE=InnoDB AUTO_INCREMENT=1009 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=1008 DEFAULT CHARSET=utf8;
 
 /*Data for the table `course` */
 
-insert  into `course`(`cid`,`cname`,`introduce`,`tno`) values (1001,'语文','这是语文课。',20080101),(1002,'aaa',NULL,20080101),(1003,'数学','这是数学课。',NULL),(1004,'英语','这是英语课。',NULL),(1005,'bbb',NULL,20080101),(1006,'ccc',NULL,NULL),(1007,'eee','',NULL);
+insert  into `course`(`cid`,`cname`,`introduce`,`tno`) values (1001,'语文','这是语文课。',20080101),(1002,'aaa',NULL,NULL),(1003,'数学','这是数学课。',NULL),(1004,'英语','这是英语课。',NULL),(1005,'bbb',NULL,NULL),(1006,'ccc',NULL,NULL),(1007,'eee','',NULL);
 
 /*Table structure for table `department` */
 
@@ -159,11 +159,11 @@ CREATE TABLE `question` (
   PRIMARY KEY (`id`),
   KEY `FKBA823BE6BDB33EE1` (`tno`),
   CONSTRAINT `FKBA823BE6BDB33EE1` FOREIGN KEY (`tno`) REFERENCES `question` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=1005 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=1011 DEFAULT CHARSET=utf8;
 
 /*Data for the table `question` */
 
-insert  into `question`(`id`,`title`,`content`,`create_time`,`author_id`,`tno`,`author_name`) values (1001,'这题怎么做？','1+1=？','2017-12-16 19:44:44',20080101,NULL,NULL),(1002,'2+2','4','2017-12-16 19:44:44',20140109,NULL,NULL),(1003,'2+3','5','2017-12-16 19:45:14',20080102,NULL,NULL),(1004,'4+4','8','2017-12-16 19:45:51',20080101,NULL,NULL);
+insert  into `question`(`id`,`title`,`content`,`create_time`,`author_id`,`tno`,`author_name`) values (1001,'这题怎么做？','1+1=？','2017-12-16 19:44:44',20080101,NULL,'bbb'),(1002,'2+2','4','2017-12-16 19:44:44',20140109,NULL,'周6'),(1003,'2+3','5','2017-12-16 19:45:14',20080102,NULL,'ccc'),(1004,'4+4','8','2017-12-16 19:45:51',20080101,NULL,'bbb'),(1005,'你好','你好啊啊啊啊','2017-12-17 16:45:54',NULL,NULL,NULL),(1006,'我是xxx','你是？','2017-12-17 16:46:34',NULL,NULL,NULL),(1007,'啊啊啊','不不不','2017-12-17 16:50:52',NULL,NULL,NULL),(1008,'擦擦擦','对对对','2017-12-17 16:51:35',NULL,NULL,NULL),(1009,'呃呃呃','发发发','2017-12-17 16:56:27',20080101,NULL,'bbb'),(1010,'我我我','你你你','2017-12-17 16:57:58',20080101,NULL,'bbb');
 
 /*Table structure for table `student` */
 
@@ -181,7 +181,7 @@ CREATE TABLE `student` (
   PRIMARY KEY (`sid`),
   KEY `FK8FFE823B625F42E7` (`clno`),
   CONSTRAINT `FK8FFE823B625F42E7` FOREIGN KEY (`clno`) REFERENCES `classname` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=20140117 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=20140113 DEFAULT CHARSET=utf8;
 
 /*Data for the table `student` */
 
@@ -204,7 +204,7 @@ CREATE TABLE `teacher` (
 
 /*Data for the table `teacher` */
 
-insert  into `teacher`(`tid`,`tname`,`password`,`sex`,`introduce`,`telephone`,`email`) values (20080101,'bbb','123','男','123','',''),(20080102,'ccc','123',NULL,NULL,'17826875930',NULL),(20080103,'ddd','123',NULL,NULL,NULL,NULL),(20080104,'eee','123',NULL,NULL,NULL,NULL);
+insert  into `teacher`(`tid`,`tname`,`password`,`sex`,`introduce`,`telephone`,`email`) values (20080101,'bbb','123','女','123456','17856987598',''),(20080102,'ccc','123',NULL,NULL,'17826875930',NULL),(20080103,'ddd','123',NULL,NULL,NULL,NULL),(20080104,'eee','123',NULL,NULL,NULL,NULL);
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;

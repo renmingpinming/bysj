@@ -18,4 +18,16 @@ public interface QuestionDao {
 	public List<Question> getStudentQu();
 	
 	public List<Question> getAllQu();
+
+	public int findAllCount();
+
+	public List<Question> getAllByPage(int begin, int pageSize);
+	
+	public int findTeaCount();
+
+	public List<Question> getTeaByPage(int begin, int pageSize);
+	
+	public int findStuCount();
+
+	public List<Question> getStuByPage(int begin, int pageSize);
 }

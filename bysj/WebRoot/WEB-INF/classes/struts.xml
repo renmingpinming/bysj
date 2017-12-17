@@ -50,7 +50,7 @@
 		</action>
 		
 		<action name="teacherUpdateImformation" class="TeacherEditImformationAction" method="update">
-			<result name="success" type="redirectAction">teacher_main</result>
+	 		<result name="success" type="redirectAction">teacher_main</result> 
 		</action>
 		
 		<action name="teacherEditPassword" class="TeacherEditPasswordAction" method="edit">
@@ -184,6 +184,37 @@
 		
 		<action name="departmentClassnameDelete" class="DepartmentDeleteClassnameAction">
 			<result name="success" type="redirectAction">department_main</result>
+		</action>
+		
+		<action name="teacherTopicGetAll" class="TopicGetAllAction" method="teacher">
+			<result name="success">/WEB-INF/jsp/teacher/discuss/discuss_main.jsp</result>
+		</action>
+		
+		<action name="teacherTopicGetTea" class="TopicGetTeaAction" method="teacher">
+			<result name="success">/WEB-INF/jsp/teacher/discuss/discuss_my_topic.jsp</result>
+		</action>
+		
+		<action name="teacherTopicGetStu" class="TopicGetStuAction" method="teacher">
+			<result name="success">/WEB-INF/jsp/teacher/discuss/discuss_student_topic.jsp</result>
+		</action>
+		
+		<action name="teacherTopicDetail" class="TopicDetailAction" method="teacher">
+			<result name="success">/WEB-INF/jsp/teacher/discuss/discuss_detail_topic.jsp</result>
+		</action>
+		
+		<action name="teacherShowTopicAdd" class="TopicAddAction" method="showAddPage">
+			<result name="success">/WEB-INF/jsp/teacher/discuss/discuss_add_topic.jsp</result>
+		</action>
+		
+		<action name="teacherTopicAdd" class="TopicAddAction" method="teacher">
+			<result name="success" type="redirectAction">teacherTopicGetAll</result>
+		</action>
+		
+		<action name="teacherCommentAdd" class="CommentAddAction" method="teacher">
+			<result name="success" type="redirectAction">
+  				<param name="actionName">teacherTopicDetail</param>
+  				<param name="questionId">${question_id}</param>
+			</result>
 		</action>
 
 	</package>

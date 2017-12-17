@@ -10,7 +10,15 @@ public class TeacherEditImformationAction extends ActionSupport implements Model
 	
 	private Teacher teacher = new Teacher();
 	private TeacherService teacherService;
+	private Integer tid;
 	
+	
+	public Integer getTid() {
+		return tid;
+	}
+	public void setTid(Integer tid) {
+		this.tid = tid;
+	}
 	public void setTeacherService(TeacherService teacherService) {
 		this.teacherService = teacherService;
 	}

@@ -117,6 +117,14 @@
 		<property name="studentDao" ref="StudentDao"></property>
 	</bean>
 	
+	<bean id="QuestionService" class="zhou.yi.service.Impl.QuestionServiceImpl">
+		<property name="questionDao" ref="QuestionDao"></property>
+	</bean>
+	
+	<bean id="CommentService" class="zhou.yi.service.Impl.CommentServiceImpl">
+		<property name="commentDao" ref="CommentDao"></property>
+	</bean>
+	
 	<!-- action -->
 	<bean id="LoginAction" class="zhou.yi.action.LoginAction" scope="prototype">
 		<property name="loginService" ref="LoginService"></property>
@@ -128,6 +136,7 @@
 	
 	<bean id="TeacherListClassAction" scope="prototype"
 	 class="zhou.yi.action.teacher.TeacherListClassAction">
+	 	<property name="teacherService" ref="TeacherService"></property>
 	</bean>
 	
 	<bean id="TeacherCourseListStudentAction" scope="prototype"
@@ -245,6 +254,38 @@
 	<bean id="DepartmentDeleteClassnameAction" scope="prototype"
 	 class="zhou.yi.action.department.DepartmentDeleteClassnameAction">
 	 	<property name="classnameService" ref="ClassnameService"></property>
+	</bean>
+	
+	<bean id="TopicGetAllAction" scope="prototype"
+	 class="zhou.yi.action.question.TopicGetAllAction">
+	 	<property name="questionService" ref="QuestionService"></property>
+	</bean>
+	
+	<bean id="TopicGetTeaAction" scope="prototype"
+	 class="zhou.yi.action.question.TopicGetTeaAction">
+	 	<property name="questionService" ref="QuestionService"></property>
+	</bean>
+	
+	<bean id="TopicGetStuAction" scope="prototype"
+	 class="zhou.yi.action.question.TopicGetStuAction">
+	 	<property name="questionService" ref="QuestionService"></property>
+	</bean>
+	
+	<bean id="TopicDetailAction" scope="prototype"
+	 class="zhou.yi.action.question.TopicDetailAction">
+	 	<property name="questionService" ref="QuestionService"></property>
+	 	<property name="commentService" ref="CommentService"></property>
+	</bean>
+	
+	<bean id="TopicAddAction" scope="prototype"
+	 class="zhou.yi.action.question.TopicAddAction">
+	 	<property name="questionService" ref="QuestionService"></property>
+	</bean>
+	
+	<bean id="CommentAddAction" scope="prototype"
+	 class="zhou.yi.action.comment.CommentAddAction">
+	 	<property name="questionService" ref="QuestionService"></property>
+	 	<property name="commentService" ref="CommentService"></property>
 	</bean>
 	
 

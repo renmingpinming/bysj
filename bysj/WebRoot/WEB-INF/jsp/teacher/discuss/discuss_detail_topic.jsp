@@ -43,7 +43,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             <li><a href="<%= basePath %>teacherListClass.action">分组管理</a></li>
             <li><a href="<%= basePath %>teacherListCourse.action">课程管理</a></li>
             <li><a href="#">作业管理</a></li>
-            <li class="active"><a href="#">文章发布</a></li>
+            <li class="active"><a href="<%= basePath %>teacherTopicGetAll.action">文章发布</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
             <li><a href="#"><s:property value="#session.exitTeacher.tname"/>你好</a></li>
@@ -62,45 +62,60 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   
   <div class="container2">
 
-      <h3 class="page-title">title</h3>
+      <h3 class="page-title"><s:property value="question.title"/></h3>
     <p class="question-info">
-        <span>作者：username</span>
-        <span>时间：create_time</span>
+        <span>作者：<s:property value="question.author_name"/></span>
+        <span>时间：<s:property value="question.create_time"/></span>
     </p>
     <hr>
     <p class="question-content">
-        content
+        <s:property value="question.content"/>
     </p>
     <hr>
-    <h4>评论：（length）</h4>
-    <form action="#" method="post">
+    <h4>评论：（<s:property value="pageBean.totalCount"/>）</h4>
+    <s:form class="form-signin" action="teacherCommentAdd.action" method="post" theme="simple">
         <div class="form-group">
-            <input type="text" name="comment" class="form-control" placeholder="请填写评论">
-            <input type="hidden" name="question_id" value="{{ question.id }}">
+            <s:textfield name="content"  class="form-control" placeholder="请填写评论"/>
+            <s:hidden name="author_id" value="%{#session.exitTeacher.tid}"/>
+		    <s:hidden name="author_name" value="%{#session.exitTeacher.tname}"/>
+		    <s:hidden name="question_id" value="%{question.id}"/>
         </div>
         <div class="form-group" style="text-align: right">
             <button type="submit" class="btn btn-primary">立即评论</button>
         </div>
-    </form>
+    </s:form>
     <ul class="comment-list">
-      
+      <s:iterator value="pageBean.list" var="comment">
         <li>
             <div class="user-info">
-                <span class="username">username</span>
-                <span class="create-time">create_time</span>
+                <span class="username"><s:property value="#comment.author_name"/></span>
+                <span class="create-time"><s:property value="#comment.create_time"/></span>
             </div>
-            <p class="comment-content">content</p>
+            <p class="comment-content"><s:property value="#comment.content"/></p>
         </li>
-        <li>
-            <div class="user-info">
-                <span class="username">username</span>
-                <span class="create-time">create_time</span>
-            </div>
-            <p class="comment-content">content</p>
-        </li>
-
-
+       </s:iterator>
     </ul>
+    <table border="0" cellspacing="0" cellpadding="0"  width="550px">
+			<tr>
+				<td align="right">
+				<span>
+				第<s:property value="pageBean.currPage"/>/<s:property value="pageBean.totalPage"/>页
+				</span>&nbsp;&nbsp;
+					总记录数<s:property value="pageBean.totalCount"/>&nbsp;&nbsp;
+					每页显示<s:property value="pageBean.pageSize"/>&nbsp;&nbsp;
+				<span>
+	  		   <s:if test="pageBean.currPage != 1">   
+			       <a href="<%= basePath%>teacherTopicDetail.action?currPage=1&questionId=<s:property value="question.id"/>">[首页]</a>&nbsp;&nbsp;
+			       <a href="<%= basePath%>teacherTopicDetail.action?currPage=<s:property value="pageBean.currPage-1"/>&questionId=<s:property value="question.id"/>">[上一页]</a>&nbsp;&nbsp;
+			   </s:if>
+			   <s:if test="pageBean.currPage != pageBean.totalPage"> 
+			       <a href="<%= basePath%>teacherTopicDetail.action?currPage=<s:property value="pageBean.currPage+1"/>&questionId=<s:property value="question.id"/>">[下一页]</a>&nbsp;&nbsp;
+			       <a href="<%= basePath%>teacherTopicDetail.action?currPage=<s:property value="pageBean.totalPage"/>&questionId=<s:property value="question.id"/>">[尾页]</a>&nbsp;&nbsp;
+			   </s:if>
+			   </span>
+				</td>
+			</tr>
+			</table>
     </div>
   
   </body>

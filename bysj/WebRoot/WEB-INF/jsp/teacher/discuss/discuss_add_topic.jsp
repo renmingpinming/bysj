@@ -43,7 +43,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             <li><a href="<%= basePath %>teacherListClass.action">分组管理</a></li>
             <li><a href="<%= basePath %>teacherListCourse.action">课程管理</a></li>
             <li><a href="#">作业管理</a></li>
-            <li class="active"><a href="#">文章发布</a></li>
+            <li class="active"><a href="<%= basePath %>teacherTopicGetAll.action">文章发布</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
             <li><a href="#"><s:property value="#session.exitTeacher.tname"/>你好</a></li>
@@ -69,26 +69,28 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             <button type="button" class="btn btn-primary btn-xs" data-toggle="offcanvas">Toggle nav</button>
           </p>
           	<h3 class="page-title">发布主题</h3>
-		    <form action="" method="post">
+          	<s:form class="form-signin" action="teacherTopicAdd.action" method="post" theme="simple">
 		        <div class="form-container">
 		            <div class="form-group">
-		                <input type="text" name="title" class="form-control" placeholder="请输入标题">
+		                <s:textfield name="title"  class="form-control" placeholder="请输入标题"/>
 		            </div>
 		            <div class="form-group">
-		                <textarea name="content" rows="5" class="form-control" placeholder="请输入内容"></textarea>
+		            	<s:textarea name="content" rows="5" class="form-control" placeholder="请输入内容"/>
 		            </div>
+		             <s:hidden name="author_id" value="%{#session.exitTeacher.tid}"/>
+		             <s:hidden name="author_name" value="%{#session.exitTeacher.tname}"/>
 		            <div class="form-group">
-		                <button type="submit" class="btn btn-primary">立即发布</button>
+		                <button type="submit" class="btn btn-lg btn-primary btn-block">立即发布</button>
 		            </div>
 		        </div>
-		    </form>
+		    </s:form>
         </div><!--/.col-xs-12.col-sm-9-->
 
         <div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar">
           <div class="list-group">
-            <a href="#" class="list-group-item">我的主题</a>
-            <a href="#" class="list-group-item active">发布主题</a>
-            <a href="#" class="list-group-item">学生主题</a>
+            <a href="<%= basePath%>teacherTopicGetTea.action" class="list-group-item">我的主题</a>
+            <a href="<%= basePath%>teacherShowTopicAdd.action" class="list-group-item active">发布主题</a>
+            <a href="<%= basePath%>teacherTopicGetStu.action" class="list-group-item">学生主题</a>
           </div>
         </div><!--/.sidebar-offcanvas-->
       </div><!--/row-->

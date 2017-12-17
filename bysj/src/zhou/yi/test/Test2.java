@@ -18,6 +18,7 @@ import zhou.yi.dao.TeacherDao;
 import zhou.yi.domain.Classname;
 import zhou.yi.domain.Comment;
 import zhou.yi.domain.Course;
+import zhou.yi.domain.PageBean;
 import zhou.yi.domain.Question;
 import zhou.yi.domain.Student;
 import zhou.yi.domain.Teacher;
@@ -121,9 +122,13 @@ public class Test2 {
 			for (Comment comment : list) {
 				System.out.println(comment.getContent());
 			}*/
-			List<Question> list2 = questionDao.getAllQu();
+			/*List<Question> list2 = questionDao.getAllQu();
 			for (Question question : list2) {
 				System.out.println(question.getTitle());
+			}*/
+			List<Comment> list3 = commentDao.getByPage(1001, 0, 2);
+			for (Comment comment : list3) {
+				System.out.println(comment.getContent());
 			}
 		}
 	
