@@ -19,9 +19,13 @@ public class TeacherListClassAction extends ActionSupport implements ModelDriven
 	public Teacher getModel() {
 		return teacher;
 	}
-	public String execute(){
-		//teacher = teacherService.findById(teacher.getTid());
-		//ActionContext.getContext().getSession().put("exitTeacher", teacher);
+	public String listClass(){
+		teacher = teacherService.findById(teacher.getTid());
+		ActionContext.getContext().getSession().put("exitTeacher", teacher);
+		return "success";
+	}
+	
+	public String showPage(){
 		return "success";
 	}
 }

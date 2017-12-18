@@ -35,23 +35,22 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">教师端</a>
+          <a class="navbar-brand" href="#">学生端</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-          	<li><a href="<%= basePath %>teacher_main.action">主页</a></li>
-            <li><a href="<%= basePath %>teacherListClassPage.action">分组管理</a></li>
-            <li><a href="<%= basePath %>teacherListCoursePage.action">课程管理</a></li>
+          	<li><a href="<%= basePath %>student_main.action">主页</a></li>
+            <li><a href="<%= basePath %>studentListCoursePage.action">课程管理</a></li>
             <li><a href="#">作业管理</a></li>
-            <li class="active"><a href="<%= basePath %>teacherTopicGetAll.action">文章发布</a></li>
+            <li class="active"><a href="<%= basePath %>studentTopicGetAll.action">文章发布</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="#"><s:property value="#session.exitTeacher.tname"/>你好</a></li>
+            <li><a href="#"><s:property value="#session.exitStudent.sname"/>你好</a></li>
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">信息维护 <span class="caret"></span></a>
               <ul class="dropdown-menu">
-                <li><a href="<%= basePath %>teacherEditImformation.action?tid=<s:property value="#session.exitTeacher.tid"/>">个人信息</a></li>
-                <li><a href="<%= basePath %>teacherEditPassword.action">修改密码</a></li>
+                <li><a href="<%= basePath %>studentEditImformation.action?sid=<s:property value="#session.exitStudent.sid"/>">个人信息</a></li>
+                <li><a href="<%= basePath %>studentEditPassword.action">修改密码</a></li>
               </ul>
             </li>
             <li><a href="<%= basePath %>index.action">注销</a></li>
@@ -73,11 +72,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     </p>
     <hr>
     <h4>评论：（<s:property value="pageBean.totalCount"/>）</h4>
-    <s:form class="form-signin" action="teacherCommentAdd.action" method="post" theme="simple">
+    <s:form class="form-signin" action="studentCommentAdd.action" method="post" theme="simple">
         <div class="form-group">
             <s:textfield name="content"  class="form-control" placeholder="请填写评论"/>
-            <s:hidden name="author_id" value="%{#session.exitTeacher.tid}"/>
-		    <s:hidden name="author_name" value="%{#session.exitTeacher.tname}"/>
+            <s:hidden name="author_id" value="%{#session.exitStudent.sid}"/>
+		    <s:hidden name="author_name" value="%{#session.exitStudent.sname}"/>
 		    <s:hidden name="question_id" value="%{question.id}"/>
         </div>
         <div class="form-group" style="text-align: right">
@@ -105,12 +104,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					每页显示<s:property value="pageBean.pageSize"/>&nbsp;&nbsp;
 				<span>
 	  		   <s:if test="pageBean.currPage != 1">   
-			       <a href="<%= basePath%>teacherTopicDetail.action?currPage=1&questionId=<s:property value="question.id"/>">[首页]</a>&nbsp;&nbsp;
-			       <a href="<%= basePath%>teacherTopicDetail.action?currPage=<s:property value="pageBean.currPage-1"/>&questionId=<s:property value="question.id"/>">[上一页]</a>&nbsp;&nbsp;
+			       <a href="<%= basePath%>studentTopicDetail.action?currPage=1&questionId=<s:property value="question.id"/>">[首页]</a>&nbsp;&nbsp;
+			       <a href="<%= basePath%>studentTopicDetail.action?currPage=<s:property value="pageBean.currPage-1"/>&questionId=<s:property value="question.id"/>">[上一页]</a>&nbsp;&nbsp;
 			   </s:if>
 			   <s:if test="pageBean.currPage != pageBean.totalPage"> 
-			       <a href="<%= basePath%>teacherTopicDetail.action?currPage=<s:property value="pageBean.currPage+1"/>&questionId=<s:property value="question.id"/>">[下一页]</a>&nbsp;&nbsp;
-			       <a href="<%= basePath%>teacherTopicDetail.action?currPage=<s:property value="pageBean.totalPage"/>&questionId=<s:property value="question.id"/>">[尾页]</a>&nbsp;&nbsp;
+			       <a href="<%= basePath%>studentTopicDetail.action?currPage=<s:property value="pageBean.currPage+1"/>&questionId=<s:property value="question.id"/>">[下一页]</a>&nbsp;&nbsp;
+			       <a href="<%= basePath%>studentTopicDetail.action?currPage=<s:property value="pageBean.totalPage"/>&questionId=<s:property value="question.id"/>">[尾页]</a>&nbsp;&nbsp;
 			   </s:if>
 			   </span>
 				</td>

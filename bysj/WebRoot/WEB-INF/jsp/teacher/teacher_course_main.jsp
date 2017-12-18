@@ -10,7 +10,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <head>
     <base href="<%=basePath%>">
     
-    <title>学生列表</title>
+    <title>课程管理</title>
     
 	<link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css"
           integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
@@ -36,7 +36,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-          	<li><a href="<%= basePath %>teacher_main.action"">主页</a></li>
+          	<li><a href="<%= basePath %>teacher_main.action">主页</a></li>
             <li><a href="<%= basePath %>teacherListClassPage.action">分组管理</a></li>
             <li class="active"><a href="<%= basePath %>teacherListCoursePage.action">课程管理</a></li>
             <li><a href="#">作业管理</a></li>
@@ -59,36 +59,27 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   
   
   <div class="container">
-  	
-	<div class="table-responsive">
-		<h1><s:property value="%{model.cname}"/>--学生名单</h1>
-	    <table class="table table-striped">
-	      <thead>
-	        <tr>
-	          <th>学号</th>
-	          <th>姓名</th>
-	          <th>班级</th>
-	          <th>性别</th>
-	          <th>电话</th>
-	          <th>邮箱</th>
-	          <th>删除</th>
-	        </tr>
-	      </thead>
-	      <tbody>
-	        <s:iterator value="%{model.students}" var="s">
-		        <tr>
-		          <td><s:property value="#s.sid"/></td>
-		          <td><s:property value="#s.sname"/></td>
-		          <td><s:property value="#s.classname.name"/></td>
-		          <td><s:property value="#s.sex"/></td>
-		          <td><s:property value="#s.telephone"/></td>
-		          <td><s:property value="#s.email"/></td>
-		          <td>sit</td>
-		         </tr>
-	         </s:iterator>
-	       </tbody>
-	    </table>
-  	 </div>
+
+      <div class="row row-offcanvas row-offcanvas-right">
+
+        <div class="col-xs-12 col-sm-9">
+          <p class="pull-right visible-xs">
+            <button type="button" class="btn btn-primary btn-xs" data-toggle="offcanvas">Toggle nav</button>
+          </p>
+          <div class="jumbotron">
+            <h1>课程管理</h1>
+            <p>所教的课程</p>
+          </div>
+          
+        </div><!--/.col-xs-12.col-sm-9-->
+
+        <div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar">
+          <div class="list-group">
+            <a href="<%= basePath %>teacherListCourse.action?tid=<s:property value="#session.exitTeacher.tid"/>" class="list-group-item">查看课程</a>
+            <a href="<%= basePath %>teacherAddCourseList.action" class="list-group-item">添加课程</a>
+          </div>
+        </div><!--/.sidebar-offcanvas-->
+      </div><!--/row-->
     </div>
   </body>
 </html>

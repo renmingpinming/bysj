@@ -25,6 +25,7 @@ public class TopicAddAction implements ModelDriven<Question>{
 	}
 	
 	public String student(){
+		questionService.saveTopic(question);
 		return "success";
 	}
 	

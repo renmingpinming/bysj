@@ -39,6 +39,9 @@ public class CommentAddAction implements ModelDriven<Comment>{
 	}
 	
 	public String student(){
+		question = questionService.getById(comment.getQuestion_id());
+		comment.setQuestion(question);
+		commentService.saveComment(comment);
 		return "success";
 	}
 

@@ -1,5 +1,5 @@
 <%@ page language="java" import="java.util.*" contentType="text/html; charset=utf-8"%>
-<%@ taglib uri="/struts-tags" prefix="s"%>
+<%@ taglib prefix="s" uri="/struts-tags" %>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -10,7 +10,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <head>
     <base href="<%=basePath%>">
     
-    <title>个人信息</title>
+    <title>文章发布</title>
     
 	<link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css"
           integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
@@ -19,15 +19,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"
             integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
             crossorigin="anonymous"></script>
-	<style type="text/css">
-	.container2{
-	 width: 600px;
-    margin: 0 auto;
-	}
-	</style>
+    <link href="<%=basePath %>css/add_topic.css" rel="stylesheet" type="text/css" />
+    
+	
   </head>
   
   <body>
+  
   <nav class="navbar navbar-default">
       <div class="container">
         <div class="navbar-header">
@@ -44,11 +42,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
           	<li><a href="<%= basePath %>student_main.action">主页</a></li>
             <li><a href="<%= basePath %>studentListCoursePage.action">课程管理</a></li>
             <li><a href="#">作业管理</a></li>
-            <li><a href="<%= basePath %>studentTopicGetAll.action">文章发布</a></li>
+            <li class="active"><a href="<%= basePath %>studentTopicGetAll.action">文章发布</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
             <li><a href="#"><s:property value="#session.exitStudent.sname"/>你好</a></li>
-            <li class="dropdown active">
+            <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">信息维护 <span class="caret"></span></a>
               <ul class="dropdown-menu">
                 <li><a href="<%= basePath %>studentEditImformation.action?sid=<s:property value="#session.exitStudent.sid"/>">个人信息</a></li>
@@ -61,42 +59,41 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
       </div>
   </nav>
   
-  <div class="container2">
-  	<s:form class="form-signin" action="studentUpdateImformation.action" method="post" theme="simple">
-        <h1>个人信息</h1>
-       <table class="table table-striped">
-       <s:hidden name="sid" value="%{model.sid}"/>
-       <s:hidden name="password" value="%{model.password}"/>
-       	<tr>
-       		<td>姓名：</td>
-       		<td><s:textfield name="sname" class="form-control" value="%{model.sname}"/></td>
-       	</tr>
-       	<tr>
-       		<td>班级：</td>
-       		<td>
-       			<s:select list="list" value="%{model.classname.id}" name="classname.id" listKey="id" listValue="name" headerKey="0" headerValue="请选择班级" class="radio-inline"></s:select>
-       		</td>
-       	</tr>
-       	<tr>
-       		<td>性别：</td>
-       		<td>
-       	
-       			<s:radio name="sex" class="radio-inline" list="{'男','女'}" value="%{model.sex}"></s:radio>
-       	
-       		</td>
-       	</tr>
-       	<tr>
-       		<td>电话：</td>
-       		<td><s:textfield name="telephone" class="form-control" value="%{model.telephone}"/></td>
-       	</tr>
-       	<tr>
-       		<td>email：</td>
-       		<td><s:textfield name="email" class="form-control" value="%{model.email}"/></td>
-       	</tr>
-       </table>
-       <button class="btn btn-lg btn-primary center-block" type="submit">提交</button>
-     </s:form>
-  </div>
+  <div class="container">
 
+      <div class="row row-offcanvas row-offcanvas-right">
+
+        <div class="col-xs-12 col-sm-9">
+          <p class="pull-right visible-xs">
+            <button type="button" class="btn btn-primary btn-xs" data-toggle="offcanvas">Toggle nav</button>
+          </p>
+          	<h3 class="page-title">发布主题</h3>
+          	<s:form class="form-signin" action="studentTopicAdd.action" method="post" theme="simple">
+		        <div class="form-container">
+		            <div class="form-group">
+		                <s:textfield name="title"  class="form-control" placeholder="请输入标题"/>
+		            </div>
+		            <div class="form-group">
+		            	<s:textarea name="content" rows="5" class="form-control" placeholder="请输入内容"/>
+		            </div>
+		             <s:hidden name="author_id" value="%{#session.exitStudent.sid}"/>
+		             <s:hidden name="author_name" value="%{#session.exitStudent.sname}"/>
+		            <div class="form-group">
+		                <button type="submit" class="btn btn-lg btn-primary btn-block">立即发布</button>
+		            </div>
+		        </div>
+		    </s:form>
+        </div><!--/.col-xs-12.col-sm-9-->
+
+        <div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar">
+         <div class="list-group">
+            <a href="<%= basePath%>studentTopicGetStu.action" class="list-group-item">我的主题</a>
+            <a href="<%= basePath%>studentShowTopicAdd.action" class="list-group-item active">发布主题</a>
+            <a href="<%= basePath%>studentTopicGetTea.action" class="list-group-item">老师主题</a>
+          </div>
+        </div><!--/.sidebar-offcanvas-->
+      </div><!--/row-->
+    </div>
+  
   </body>
 </html>

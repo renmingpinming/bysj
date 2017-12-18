@@ -1,5 +1,5 @@
 <%@ page language="java" import="java.util.*" contentType="text/html; charset=utf-8"%>
-<%@ taglib uri="/struts-tags" prefix="s"%>
+<%@ taglib prefix="s" uri="/struts-tags" %>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -10,7 +10,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <head>
     <base href="<%=basePath%>">
     
-    <title>课程管理</title>
+    <title>文章发布</title>
     
 	<link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css"
           integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
@@ -19,10 +19,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"
             integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
             crossorigin="anonymous"></script>
+    <link href="<%=basePath %>css/list_topic.css" rel="stylesheet" type="text/css" />
+    
 	
   </head>
   
   <body>
+  
   <nav class="navbar navbar-default">
       <div class="container">
         <div class="navbar-header">
@@ -37,9 +40,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
           	<li><a href="<%= basePath %>student_main.action">主页</a></li>
-            <li class="active"><a href="<%= basePath %>studentListCoursePage.action">课程管理</a></li>
+            <li><a href="<%= basePath %>studentListCoursePage.action">课程管理</a></li>
             <li><a href="#">作业管理</a></li>
-            <li><a href="<%= basePath %>studentTopicGetAll.action">文章发布</a></li>
+            <li class="active"><a href="<%= basePath %>studentTopicGetAll.action">文章发布</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
             <li><a href="#"><s:property value="#session.exitStudent.sname"/>你好</a></li>
@@ -64,28 +67,53 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
           <p class="pull-right visible-xs">
             <button type="button" class="btn btn-primary btn-xs" data-toggle="offcanvas">Toggle nav</button>
           </p>
-          <div class="jumbotron">
-            <h1>课程管理</h1>
-            <p>所选的课程</p>
-          </div>
-          <div class="row">
-          	 <s:iterator value="#session.exitStudent.courses" var="c">
-	          	 <div class="col-xs-6 col-lg-4">
-	              <h2><s:property value="#c.cname"/></h2>
-	              <p>简介：<s:property value="#c.introduce"/></p>
-	            </div><!--/.col-xs-6.col-lg-4-->
-             </s:iterator>
-          </div><!--/row-->
+          <h2>学生主题</h2>
+          	<ul>
+		    <s:iterator value="pageBean.list" var="topic">
+	        <li>
+	            <div class="question-group">
+	                <p class="question-title"><a href="<%= basePath %>studentTopicDetail.action?questionId=<s:property value="#topic.id"/>"><s:property value="#topic.title"/></a></p>
+	                <p class="question-content"><s:property value="#topic.content"/></p>
+	                <div class="question-info">
+	                    <span class="question-author"><s:property value="#topic.author_name"/></span>
+	                    <span class="question-time"><s:property value="#topic.create_time"/></span>
+	                </div>
+	            </div>
+	        </li>
+	        </s:iterator>
+			</ul>
+			<table border="0" cellspacing="0" cellpadding="0"  width="550px">
+			<tr>
+				<td align="right">
+				<span>
+				第<s:property value="pageBean.currPage"/>/<s:property value="pageBean.totalPage"/>页
+				</span>&nbsp;&nbsp;
+					总记录数<s:property value="pageBean.totalCount"/>&nbsp;&nbsp;
+					每页显示<s:property value="pageBean.pageSize"/>&nbsp;&nbsp;
+				<span>
+	  		   <s:if test="pageBean.currPage != 1">   
+			       <a href="<%= basePath%>studentTopicGetTea.action?currPage=1">[首页]</a>&nbsp;&nbsp;
+			       <a href="<%= basePath%>studentTopicGetTea.action?currPage=<s:property value="pageBean.currPage-1"/>">[上一页]</a>&nbsp;&nbsp;
+			   </s:if>
+			   <s:if test="pageBean.currPage != pageBean.totalPage"> 
+			       <a href="<%= basePath%>studentTopicGetTea.action?currPage=<s:property value="pageBean.currPage+1"/>">[下一页]</a>&nbsp;&nbsp;
+			       <a href="<%= basePath%>studentTopicGetTea.action?currPage=<s:property value="pageBean.totalPage"/>">[尾页]</a>&nbsp;&nbsp;
+			   </s:if>
+			   </span>
+				</td>
+			</tr>
+			</table>
         </div><!--/.col-xs-12.col-sm-9-->
 
         <div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar">
           <div class="list-group">
-            <a href="<%= basePath %>studentListCourse.action?sid=<s:property value="#session.exitStudent.sid"/>" class="list-group-item active">查看课程</a>
-            <a href="<%= basePath %>studentAddCourseList.action" class="list-group-item">添加课程</a>
+            <a href="<%= basePath%>studentTopicGetStu.action" class="list-group-item">我的主题</a>
+            <a href="<%= basePath%>studentShowTopicAdd.action" class="list-group-item">发布主题</a>
+            <a href="<%= basePath%>studentTopicGetTea.action" class="list-group-item active">老师主题</a>
           </div>
         </div><!--/.sidebar-offcanvas-->
       </div><!--/row-->
     </div>
-
+  
   </body>
 </html>

@@ -48,6 +48,7 @@ public class TopicGetStuAction {
 	}
 	
 	public String student(){
+		pageBean = questionService.getStuByPage(currPage);
 		return "success";
 	}
 }

@@ -49,6 +49,7 @@ public class TopicGetAllAction {
 	}
 	
 	public String student(){
+		pageBean = questionService.getAllByPage(currPage);
 		return "success";
 	}
 }

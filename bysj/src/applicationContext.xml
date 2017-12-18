@@ -132,6 +132,7 @@
 	
 	<bean id="TeacherListCourseAction" scope="prototype"
 	 class="zhou.yi.action.teacher.TeacherListCourseAction">
+	 	<property name="teacherService" ref="TeacherService"></property>
 	</bean>
 	
 	<bean id="TeacherListClassAction" scope="prototype"
@@ -173,6 +174,7 @@
 	 
 	 <bean id="StudentListCourseAction" scope="prototype"
 	 class="zhou.yi.action.student.StudentListCourseAction">
+	 	<property name="studentService" ref="StudentService"></property>
 	</bean>
 	
 	<bean id="StudentAddCourseAction" scope="prototype"

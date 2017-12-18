@@ -37,9 +37,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
           	<li class="active"><a href="<%= basePath %>student_main.action">主页</a></li>
-            <li><a href="<%= basePath %>studentListCourse.action">课程管理</a></li>
+            <li><a href="<%= basePath %>studentListCoursePage.action">课程管理</a></li>
             <li><a href="#">作业管理</a></li>
-            <li><a href="#">文章发布</a></li>
+            <li><a href="<%= basePath %>studentTopicGetAll.action">文章发布</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
             <li><a href="#"><s:property value="#session.exitStudent.sname"/>你好</a></li>

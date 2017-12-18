@@ -61,6 +61,8 @@ public class TopicDetailAction {
 	}
 	
 	public String student(){
+		question = questionService.getById(questionId);
+		pageBean = commentService.getByPage(questionId,currPage);
 		return "success";
 	}
 }

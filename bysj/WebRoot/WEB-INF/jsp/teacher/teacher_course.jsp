@@ -37,8 +37,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
           	<li><a href="<%= basePath %>teacher_main.action">主页</a></li>
-            <li><a href="<%= basePath %>teacherListClass.action">分组管理</a></li>
-            <li class="active"><a href="<%= basePath %>teacherListCourse.action">课程管理</a></li>
+            <li><a href="<%= basePath %>teacherListClassPage.action">分组管理</a></li>
+            <li class="active"><a href="<%= basePath %>teacherListCoursePage.action">课程管理</a></li>
             <li><a href="#">作业管理</a></li>
             <li><a href="<%= basePath %>teacherTopicGetAll.action">文章发布</a></li>
           </ul>
@@ -83,7 +83,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
         <div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar">
           <div class="list-group">
-            <a href="<%= basePath %>teacherListCourse.action" class="list-group-item active">查看课程</a>
+            <a href="<%= basePath %>teacherListCourse.action?tid=<s:property value="#session.exitTeacher.tid"/>" class="list-group-item active">查看课程</a>
             <a href="<%= basePath %>teacherAddCourseList.action" class="list-group-item">添加课程</a>
           </div>
         </div><!--/.sidebar-offcanvas-->

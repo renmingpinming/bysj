@@ -29,11 +29,19 @@
 			<result name="input">/index.jsp</result>
 		</action>
 		
-		<action name="teacherListCourse" class="TeacherListCourseAction">
+		<action name="teacherListCoursePage" class="TeacherListCourseAction" method="showPage">
+			<result name="success">/WEB-INF/jsp/teacher/teacher_course_main.jsp</result>
+		</action>
+		
+		<action name="teacherListCourse" class="TeacherListCourseAction" method="listCourse">
 			<result name="success">/WEB-INF/jsp/teacher/teacher_course.jsp</result>
 		</action>
 		
-		<action name="teacherListClass" class="TeacherListClassAction">
+		<action name="teacherListClassPage" class="TeacherListClassAction" method="showPage">
+			<result name="success">/WEB-INF/jsp/teacher/teacher_class_main.jsp</result>
+		</action>
+		
+		<action name="teacherListClass" class="TeacherListClassAction" method="listClass">
 			<result name="success">/WEB-INF/jsp/teacher/teacher_class.jsp</result>
 		</action>
 		
@@ -78,7 +86,11 @@
 			<result name="success" type="redirectAction">teacher_main</result>
 		</action>
 		
-		<action name="studentListCourse" class="StudentListCourseAction">
+		<action name="studentListCoursePage" class="StudentListCourseAction" method="showPage">
+			<result name="success">/WEB-INF/jsp/student/student_course_main.jsp</result>
+		</action>
+		
+		<action name="studentListCourse" class="StudentListCourseAction" method="listCourse">
 			<result name="success">/WEB-INF/jsp/student/student_course.jsp</result>
 		</action>
 		
@@ -190,29 +202,60 @@
 			<result name="success">/WEB-INF/jsp/teacher/discuss/discuss_main.jsp</result>
 		</action>
 		
+		<action name="studentTopicGetAll" class="TopicGetAllAction" method="student">
+			<result name="success">/WEB-INF/jsp/student/discuss/discuss_main.jsp</result>
+		</action>
+		
 		<action name="teacherTopicGetTea" class="TopicGetTeaAction" method="teacher">
 			<result name="success">/WEB-INF/jsp/teacher/discuss/discuss_my_topic.jsp</result>
+		</action>
+		
+		<action name="studentTopicGetTea" class="TopicGetTeaAction" method="student">
+			<result name="success">/WEB-INF/jsp/student/discuss/discuss_teacher_topic.jsp</result>
 		</action>
 		
 		<action name="teacherTopicGetStu" class="TopicGetStuAction" method="teacher">
 			<result name="success">/WEB-INF/jsp/teacher/discuss/discuss_student_topic.jsp</result>
 		</action>
 		
+		<action name="studentTopicGetStu" class="TopicGetStuAction" method="student">
+			<result name="success">/WEB-INF/jsp/student/discuss/discuss_my_topic.jsp</result>
+		</action>
+		
 		<action name="teacherTopicDetail" class="TopicDetailAction" method="teacher">
 			<result name="success">/WEB-INF/jsp/teacher/discuss/discuss_detail_topic.jsp</result>
+		</action>
+		
+		<action name="studentTopicDetail" class="TopicDetailAction" method="student">
+			<result name="success">/WEB-INF/jsp/student/discuss/discuss_detail_topic.jsp</result>
 		</action>
 		
 		<action name="teacherShowTopicAdd" class="TopicAddAction" method="showAddPage">
 			<result name="success">/WEB-INF/jsp/teacher/discuss/discuss_add_topic.jsp</result>
 		</action>
 		
+		<action name="studentShowTopicAdd" class="TopicAddAction" method="showAddPage">
+			<result name="success">/WEB-INF/jsp/student/discuss/discuss_add_topic.jsp</result>
+		</action>
+		
 		<action name="teacherTopicAdd" class="TopicAddAction" method="teacher">
 			<result name="success" type="redirectAction">teacherTopicGetAll</result>
+		</action>
+		
+		<action name="studentTopicAdd" class="TopicAddAction" method="student">
+			<result name="success" type="redirectAction">studentTopicGetAll</result>
 		</action>
 		
 		<action name="teacherCommentAdd" class="CommentAddAction" method="teacher">
 			<result name="success" type="redirectAction">
   				<param name="actionName">teacherTopicDetail</param>
+  				<param name="questionId">${question_id}</param>
+			</result>
+		</action>
+		
+		<action name="studentCommentAdd" class="CommentAddAction" method="student">
+			<result name="success" type="redirectAction">
+  				<param name="actionName">studentTopicDetail</param>
   				<param name="questionId">${question_id}</param>
 			</result>
 		</action>

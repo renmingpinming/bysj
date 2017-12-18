@@ -48,6 +48,7 @@ public class TopicGetTeaAction {
 	}
 	
 	public String student(){
+		pageBean = questionService.getTeaByPage(currPage);
 		return "success";
 	}
 }
