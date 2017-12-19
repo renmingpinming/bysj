@@ -12,12 +12,16 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 import zhou.yi.dao.ClassnameDao;
 import zhou.yi.dao.CommentDao;
 import zhou.yi.dao.CourseDao;
+import zhou.yi.dao.DocumentDao;
+import zhou.yi.dao.HomeworkDao;
 import zhou.yi.dao.QuestionDao;
 import zhou.yi.dao.StudentDao;
 import zhou.yi.dao.TeacherDao;
 import zhou.yi.domain.Classname;
 import zhou.yi.domain.Comment;
 import zhou.yi.domain.Course;
+import zhou.yi.domain.Document;
+import zhou.yi.domain.Homework;
 import zhou.yi.domain.PageBean;
 import zhou.yi.domain.Question;
 import zhou.yi.domain.Student;
@@ -112,7 +116,7 @@ public class Test2 {
 		
 	}
 	
-	    @Test
+	    //@Test
 		public void test5() {
 			String conf = "applicationContext.xml";
 			ApplicationContext ac = new ClassPathXmlApplicationContext(conf);
@@ -130,6 +134,34 @@ public class Test2 {
 			for (Comment comment : list3) {
 				System.out.println(comment.getContent());
 			}
+		}
+		
+		@Test
+		public void test6() {
+			String conf = "applicationContext.xml";
+			ApplicationContext ac = new ClassPathXmlApplicationContext(conf);
+			HomeworkDao homeworkDao = (HomeworkDao) ac.getBean("HomeworkDao");
+			DocumentDao documentDao = (DocumentDao) ac.getBean("DocumentDao");
+			/*List<Homework> list = homeworkDao.getByCourseId(1001);
+			for (Homework homework : list) {
+				System.out.println(homework.getTitle());
+			}
+			Homework h = new Homework();
+			h.setCourse_id(1001);
+			h.setTitle("4+4");
+			h.setContent("8");
+			homeworkDao.saveHomework(h);*/
+			
+			/*List<Document> list2 = documentDao.getTheDocuments(1001, 1002);
+			for (Document document : list2) {
+				System.out.println(document.getFilename());
+			}
+			Document d = new Document();
+			d.setCourse_id(1001);
+			d.setHid(1002);
+			d.setFilename("1.txt");
+			documentDao.saveDocument(d);*/
+			
 		}
 	
 	

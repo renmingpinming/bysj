@@ -52,7 +52,9 @@
 				<value>zhou/yi/domain/Teacher.hbm.xml</value>
 				<value>zhou/yi/domain/Question.hbm.xml</value>
 				<value>zhou/yi/domain/Comment.hbm.xml</value>
-				<value>zhou/yi/domain/Department.hbm.xml</value>		
+				<value>zhou/yi/domain/Department.hbm.xml</value>
+				<value>zhou/yi/domain/Document.hbm.xml</value>
+				<value>zhou/yi/domain/Homework.hbm.xml</value>		
 			</list>		
 		</property>
 	</bean>
@@ -94,6 +96,14 @@
 		<property name="sessionFactory" ref="sessionFactory"></property>
 	</bean>
 	
+	<bean id="DocumentDao" class="zhou.yi.dao.Impl.DocumentDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	
+	<bean id="HomeworkDao" class="zhou.yi.dao.Impl.HomeworkDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	
 	<!-- service -->
 	<bean id="LoginService" class="zhou.yi.service.Impl.LoginServiceImpl">
 		<property name="teacherDao" ref="TeacherDao"></property>
@@ -123,6 +133,14 @@
 	
 	<bean id="CommentService" class="zhou.yi.service.Impl.CommentServiceImpl">
 		<property name="commentDao" ref="CommentDao"></property>
+	</bean>
+	
+	<bean id="DocumentService" class="zhou.yi.service.Impl.DocumentServiceImpl">
+		<property name="documentDao" ref="DocumentDao"></property>
+	</bean>
+	
+	<bean id="HomeworkService" class="zhou.yi.service.Impl.HomeworkServiceImpl">
+		<property name="homeworkDao" ref="HomeworkDao"></property>
 	</bean>
 	
 	<!-- action -->

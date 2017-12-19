@@ -123,6 +123,22 @@ CREATE TABLE `department` (
 
 insert  into `department`(`did`,`dname`,`ddesc`,`password`) values (20012001,'zhouyi',NULL,'123');
 
+/*Table structure for table `document` */
+
+DROP TABLE IF EXISTS `document`;
+
+CREATE TABLE `document` (
+  `id` int(12) NOT NULL AUTO_INCREMENT,
+  `filename` varchar(20) DEFAULT NULL,
+  `course_id` int(12) DEFAULT NULL,
+  `hid` int(12) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=1006 DEFAULT CHARSET=utf8;
+
+/*Data for the table `document` */
+
+insert  into `document`(`id`,`filename`,`course_id`,`hid`) values (1002,'1.txt',1001,1002),(1003,'2.txt',1001,1002);
+
 /*Table structure for table `employee` */
 
 DROP TABLE IF EXISTS `employee`;
@@ -140,9 +156,28 @@ CREATE TABLE `employee` (
   PRIMARY KEY (`eid`),
   KEY `FK4722E6AE26F5B0BD` (`dno`),
   CONSTRAINT `FK4722E6AE26F5B0BD` FOREIGN KEY (`dno`) REFERENCES `department` (`did`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 /*Data for the table `employee` */
+
+insert  into `employee`(`eid`,`ename`,`sex`,`birthday`,`joinDate`,`eno`,`username`,`password`,`dno`) values (1,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL);
+
+/*Table structure for table `homework` */
+
+DROP TABLE IF EXISTS `homework`;
+
+CREATE TABLE `homework` (
+  `hid` int(12) NOT NULL AUTO_INCREMENT,
+  `course_id` int(12) DEFAULT NULL,
+  `title` varchar(100) DEFAULT NULL,
+  `content` text,
+  `create_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`hid`)
+) ENGINE=InnoDB AUTO_INCREMENT=1005 DEFAULT CHARSET=utf8;
+
+/*Data for the table `homework` */
+
+insert  into `homework`(`hid`,`course_id`,`title`,`content`,`create_time`) values (1002,1001,'2+2','4','2017-12-19 18:57:06'),(1003,1001,'3+3','6','2017-12-19 18:57:23'),(1004,1001,'4+4','8','2017-12-19 19:04:29');
 
 /*Table structure for table `question` */
 
