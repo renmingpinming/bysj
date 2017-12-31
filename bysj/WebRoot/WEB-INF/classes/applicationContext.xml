@@ -308,6 +308,32 @@
 	 	<property name="commentService" ref="CommentService"></property>
 	</bean>
 	
+	<bean id="HomeworkMainAction" scope="prototype"
+	 class="zhou.yi.action.homework.HomeworkMainAction">	
+	</bean>
+	
+	<bean id="HomeworkListAction" scope="prototype"
+	 class="zhou.yi.action.homework.HomeworkListAction">
+	 	<property name="homeworkService" ref="HomeworkService"></property>	
+	</bean>
+	
+	<bean id="HomeworkAddAction" scope="prototype"
+	 class="zhou.yi.action.homework.HomeworkAddAction">
+	 	<property name="homeworkService" ref="HomeworkService"></property>	
+	</bean>
+	
+	<bean id="DocumentDownloadAction" scope="prototype"
+	 class="zhou.yi.action.document.DocumentDownloadAction">
+	 	<property name="homeworkService" ref="HomeworkService"></property>	
+	 	<property name="documentService" ref="DocumentService"></property>	
+	</bean>
+	
+	<bean id="DocumentUploadAction" scope="prototype"
+	 class="zhou.yi.action.document.DocumentUploadAction">
+	 	<property name="homeworkService" ref="HomeworkService"></property>	
+	 	<property name="documentService" ref="DocumentService"></property>	
+	</bean>
+	
 
 
 </beans>

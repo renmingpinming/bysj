@@ -39,7 +39,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
           	<li><a href="<%= basePath %>teacher_main.action">主页</a></li>
             <li><a href="<%= basePath %>teacherListClassPage.action">分组管理</a></li>
             <li><a href="<%= basePath %>teacherListCoursePage.action">课程管理</a></li>
-            <li class="active"><a href="#">作业管理</a></li>
+            <li class="active"><a href="<%= basePath %>teacherHomeworkMain.action">作业管理</a></li>
             <li><a href="<%= basePath %>teacherTopicGetAll.action">文章发布</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
@@ -65,26 +65,22 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
           <p class="pull-right visible-xs">
             <button type="button" class="btn btn-primary btn-xs" data-toggle="offcanvas">Toggle nav</button>
           </p>
-          <div class="jumbotron">
-            <h1>课程名</h1>
-            <p>课程</p>
-          </div>
+          
           <div class="table-responsive">
+          <h1>所有作业</h1>
 	          <table class="table table-striped">
+	          <s:iterator value="list" var="c">
 	          	<tr>
-	          		<td>作业名</td>
-	          		<td>详细</td>
+	          		<td><s:property value="#c.title"/></td>
+	          		<td><a class="btn btn-default" href="<%= basePath %>documentDownload.action?hid=<s:property value="#c.hid"/>&course_id=<s:property value="%{#session.course_id}"/>" role="button">详细 &raquo;</a></td>
 	          	</tr>
-	          	<tr>
-	          		<td>作业名</td>
-	          		<td>详细</td>
-	          	</tr>
+	          </s:iterator>
 	          </table>
           </div>
         </div><!--/.col-xs-12.col-sm-9-->
         <div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar">
           <div class="list-group">
-            <a href="#" class="list-group-item">发布作业</a>
+            <a href="<%= basePath %>homeworkAddList.action" class="list-group-item">发布作业</a>
           </div>
         </div><!--/.sidebar-offcanvas-->
       </div><!--/row-->

@@ -40,7 +40,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
           	<li><a href="<%= basePath %>teacher_main.action">主页</a></li>
             <li><a href="<%= basePath %>teacherListClassPage.action">分组管理</a></li>
             <li><a href="<%= basePath %>teacherListCoursePage.action">课程管理</a></li>
-            <li class="active"><a href="#">作业管理</a></li>
+            <li class="active"><a href="<%= basePath %>teacherHomeworkMain.action">作业管理</a></li>
             <li><a href="<%= basePath %>teacherTopicGetAll.action">文章发布</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
@@ -67,9 +67,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             <button type="button" class="btn btn-primary btn-xs" data-toggle="offcanvas">Toggle nav</button>
           </p>
           <div class="jumbotron">
-            <h1>作业名:xxx</h1>
-            <div>内容：XXXXXXXXXXxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-            xxxxxxxxxx</div>
+            <h2><s:property value="%{model.title}"/></h2>
+            <div><s:property value="%{model.content}"/></div>
           </div>
           <table>
           	<tr>
@@ -82,7 +81,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         </div><!--/.col-xs-12.col-sm-9-->
         <div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar">
           <div class="list-group">
-            <a href="#" class="list-group-item active">发布作业</a>
+            <a href="#" class="list-group-item active">下载作业</a>
           </div>
         </div><!--/.sidebar-offcanvas-->
       </div><!--/row-->

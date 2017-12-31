@@ -161,7 +161,8 @@ public class Test2 {
 			d.setHid(1002);
 			d.setFilename("1.txt");
 			documentDao.saveDocument(d);*/
-			
+			Homework h = homeworkDao.getByCourseIdAndHid(1001, 1004);
+			System.out.println(h.getTitle());
 		}
 	
 	

@@ -40,7 +40,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
           <ul class="nav navbar-nav">
           	<li><a href="<%= basePath %>student_main.action">主页</a></li>
             <li><a href="<%= basePath %>studentListCoursePage.action">课程管理</a></li>
-            <li><a href="#">作业管理</a></li>
+            <li><a href="<%= basePath %>studentHomeworkMain.action">作业管理</a></li>
             <li class="active"><a href="<%= basePath %>studentTopicGetAll.action">文章发布</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">

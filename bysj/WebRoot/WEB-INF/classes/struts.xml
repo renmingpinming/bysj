@@ -259,6 +259,38 @@
   				<param name="questionId">${question_id}</param>
 			</result>
 		</action>
+		
+		<action name="teacherHomeworkMain" class="HomeworkMainAction" method="teacher">
+			<result name="success">/WEB-INF/jsp/teacher/homework/teacher_homework_main.jsp</result>
+		</action>
+		
+		<action name="studentHomeworkMain" class="HomeworkMainAction" method="student">
+			<result name="success">/WEB-INF/jsp/student/homework/student_homework_main.jsp</result>
+		</action>
+		
+		<action name="teacherhomeworkList" class="HomeworkListAction" method="teacher">
+			<result name="success">/WEB-INF/jsp/teacher/homework/teacher_homework_title.jsp</result>
+		</action>
+		
+		<action name="studenthomeworkList" class="HomeworkListAction" method="student">
+			<result name="success">/WEB-INF/jsp/student/homework/student_homework_title.jsp</result>
+		</action>
+		
+		<action name="homeworkAddList" class="HomeworkAddAction" method="list">
+			<result name="success">/WEB-INF/jsp/teacher/homework/teacher_homework_add.jsp</result>
+		</action>
+		
+		<action name="homeworkAdd" class="HomeworkAddAction" method="save">
+			<result name="success" type="redirectAction">teacherHomeworkMain</result>
+		</action>
+		
+		<action name="documentDownload" class="DocumentDownloadAction">
+			<result name="success">/WEB-INF/jsp/teacher/homework/teacher_homework_download.jsp</result>
+		</action>
+		
+		<action name="documentUpload" class="DocumentUploadAction">
+			<result name="success">/WEB-INF/jsp/student/homework/student_homework_upload.jsp</result>
+		</action>
 
 	</package>
    

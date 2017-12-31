@@ -47,11 +47,11 @@ CREATE TABLE `comment` (
   PRIMARY KEY (`id`),
   KEY `FK38A5EE5FBDB33EE1` (`tno`),
   CONSTRAINT `FK38A5EE5FBDB33EE1` FOREIGN KEY (`tno`) REFERENCES `question` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=1014 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=1015 DEFAULT CHARSET=utf8;
 
 /*Data for the table `comment` */
 
-insert  into `comment`(`id`,`question_id`,`author_id`,`content`,`create_time`,`tno`,`author_name`) values (1001,1001,20080101,'2','2017-12-16 19:46:44',NULL,'bbb'),(1002,1001,20080101,'3','2017-12-16 19:46:44',NULL,'bbb'),(1003,NULL,NULL,'woshi','2017-12-16 19:46:44',NULL,NULL),(1004,1001,20080101,'nihao','2017-12-16 19:46:44',1001,'bbb'),(1005,1001,20080101,'2222','2017-12-16 19:59:54',1001,'bbb'),(1006,1001,20080101,'3333','2017-12-16 20:07:25',1001,'bbb'),(1007,1010,20080101,'1','2017-12-17 19:25:02',1010,'bbb'),(1008,1010,NULL,'他他他','2017-12-17 19:33:09',1010,''),(1009,1010,20080101,'sss','2017-12-17 19:42:51',1010,'bbb'),(1010,1009,NULL,'111','2017-12-17 19:51:16',1009,''),(1011,1009,20080101,'222','2017-12-17 19:51:59',1009,'bbb'),(1012,1012,20140109,'333','2017-12-18 13:48:03',1012,'周6'),(1013,1012,20140109,'xxxx','2017-12-18 13:48:15',1012,'周6');
+insert  into `comment`(`id`,`question_id`,`author_id`,`content`,`create_time`,`tno`,`author_name`) values (1001,1001,20080101,'2','2017-12-16 19:46:44',NULL,'bbb'),(1002,1001,20080101,'3','2017-12-16 19:46:44',NULL,'bbb'),(1003,NULL,NULL,'woshi','2017-12-16 19:46:44',NULL,NULL),(1004,1001,20080101,'nihao','2017-12-16 19:46:44',1001,'bbb'),(1005,1001,20080101,'2222','2017-12-16 19:59:54',1001,'bbb'),(1006,1001,20080101,'3333','2017-12-16 20:07:25',1001,'bbb'),(1007,1010,20080101,'1','2017-12-17 19:25:02',1010,'bbb'),(1008,1010,NULL,'他他他','2017-12-17 19:33:09',1010,''),(1009,1010,20080101,'sss','2017-12-17 19:42:51',1010,'bbb'),(1010,1009,NULL,'111','2017-12-17 19:51:16',1009,''),(1011,1009,20080101,'222','2017-12-17 19:51:59',1009,'bbb'),(1012,1012,20140109,'333','2017-12-18 13:48:03',1012,'周6'),(1013,1012,20140109,'xxxx','2017-12-18 13:48:15',1012,'周6'),(1014,1010,20080101,'111','2017-12-31 12:58:54',1010,'bbb');
 
 /*Table structure for table `connect` */
 
@@ -133,7 +133,7 @@ CREATE TABLE `document` (
   `course_id` int(12) DEFAULT NULL,
   `hid` int(12) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=1006 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=1004 DEFAULT CHARSET=utf8;
 
 /*Data for the table `document` */
 
@@ -173,11 +173,11 @@ CREATE TABLE `homework` (
   `content` text,
   `create_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`hid`)
-) ENGINE=InnoDB AUTO_INCREMENT=1005 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=1008 DEFAULT CHARSET=utf8;
 
 /*Data for the table `homework` */
 
-insert  into `homework`(`hid`,`course_id`,`title`,`content`,`create_time`) values (1002,1001,'2+2','4','2017-12-19 18:57:06'),(1003,1001,'3+3','6','2017-12-19 18:57:23'),(1004,1001,'4+4','8','2017-12-19 19:04:29');
+insert  into `homework`(`hid`,`course_id`,`title`,`content`,`create_time`) values (1002,1001,'2+2','4444444444444444444444444444444444444444444444444444444444444444444444444444444444444444','2017-12-19 18:57:06'),(1003,1001,'3+3','6','2017-12-19 18:57:23'),(1004,1001,'4+44444444444','8','2017-12-19 19:04:29'),(1007,1003,'3','3','2017-12-31 14:55:36');
 
 /*Table structure for table `question` */
 

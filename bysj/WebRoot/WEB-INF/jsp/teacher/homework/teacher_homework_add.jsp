@@ -40,7 +40,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
           	<li><a href="<%= basePath %>teacher_main.action">主页</a></li>
             <li><a href="<%= basePath %>teacherListClassPage.action">分组管理</a></li>
             <li><a href="<%= basePath %>teacherListCoursePage.action">课程管理</a></li>
-            <li class="active"><a href="#">作业管理</a></li>
+            <li class="active"><a href="<%= basePath %>teacherHomeworkMain.action">作业管理</a></li>
             <li><a href="<%= basePath %>teacherTopicGetAll.action">文章发布</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
@@ -67,16 +67,17 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             <button type="button" class="btn btn-primary btn-xs" data-toggle="offcanvas">Toggle nav</button>
           </p>
           <div>
-          <s:form class="form-signin" action="#" method="post" theme="simple">
+          <s:form class="form-signin" action="homeworkAdd.action" method="post" theme="simple">
 		        <h1>发布作业</h1>
 		       <table class="table table-striped">
+		       <s:hidden name="course_id" value="%{#session.course_id}"/>
 		       	<tr>
 		       		<td>作业名：</td>
-		       		<td><s:textfield name="cname" class="form-control"/></td>
+		       		<td><s:textfield name="title" class="form-control"/></td>
 		       	</tr>
 		       	<tr>
 		       		<td>内容：</td>
-		       		<td><s:textarea name="introduce" class="form-control" cols="90" rows="10"/> </td>   		
+		       		<td><s:textarea name="content" class="form-control" cols="90" rows="10"/> </td>   		
 		       	</tr>
 		       </table>
 		       <button class="btn btn-lg btn-primary center-block" type="submit">提交</button>
