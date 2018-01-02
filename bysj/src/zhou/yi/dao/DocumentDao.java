@@ -9,4 +9,5 @@ public interface DocumentDao {
 	public void saveDocument(Document document);
 	
 	public List<Document> getTheDocuments(Integer course_id,Integer hid);
+
 }

@@ -284,12 +284,26 @@
 			<result name="success" type="redirectAction">teacherHomeworkMain</result>
 		</action>
 		
-		<action name="documentDownload" class="DocumentDownloadAction">
+		<action name="documentDownloadList" class="DocumentDownloadAction" method="list">
 			<result name="success">/WEB-INF/jsp/teacher/homework/teacher_homework_download.jsp</result>
 		</action>
 		
-		<action name="documentUpload" class="DocumentUploadAction">
+		<action name="documentDownload" class="DocumentDownloadAction" method="execute">
+			<result name="success" type="stream">  
+                <param name="inputName">fileInput</param>  
+                <param name="contentDisposition">attachment;filename="${fileName}"</param>
+                <param name="contentType">application/octet-stream;charset=ISO8859-1</param>
+            </result>
+		</action>
+		
+		<action name="documentUploadList" class="DocumentUploadAction" method="list">
 			<result name="success">/WEB-INF/jsp/student/homework/student_homework_upload.jsp</result>
+		</action>
+		
+		<action name="documentUpload" class="DocumentUploadAction" method="execute">
+			<result name="success" type="redirectAction">studentHomeworkMain</result>
+			<param name="maximumSize">1000000</param>  
+            <param name="allowedTypes">text/plain,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document</param>
 		</action>
 
 	</package>

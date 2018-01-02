@@ -133,11 +133,11 @@ CREATE TABLE `document` (
   `course_id` int(12) DEFAULT NULL,
   `hid` int(12) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=1004 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=1009 DEFAULT CHARSET=utf8;
 
 /*Data for the table `document` */
 
-insert  into `document`(`id`,`filename`,`course_id`,`hid`) values (1002,'1.txt',1001,1002),(1003,'2.txt',1001,1002);
+insert  into `document`(`id`,`filename`,`course_id`,`hid`) values (1004,'zhouyi.docx',1001,1003),(1005,'123.txt',1001,1003),(1006,'2014周夷.docx',1001,1003),(1007,'2014周夷.docx',1001,1004),(1008,'2014周夷.docx',1001,1002);
 
 /*Table structure for table `employee` */
 

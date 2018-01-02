@@ -68,14 +68,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             <h2><s:property value="%{model.title}"/></h2>
             <div><s:property value="%{model.content}"/></div>
           </div>
-          <table>
-          	<tr>
-          		<td>2</td>
-          	</tr>
-          	<tr>
-          		<td>2</td>
-          	</tr>
-          </table>
+          <s:form action="documentUpload.action" method="post" enctype="multipart/form-data" theme="simple">
+        	<input type="file" name="upload">  
+        	<input type="submit" name="btnUpload" value="上传"> 
+    	  </s:form>
         </div><!--/.col-xs-12.col-sm-9-->
         <div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar">
           <div class="list-group">

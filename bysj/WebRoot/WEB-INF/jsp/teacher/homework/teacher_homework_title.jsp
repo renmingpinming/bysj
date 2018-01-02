@@ -72,7 +72,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	          <s:iterator value="list" var="c">
 	          	<tr>
 	          		<td><s:property value="#c.title"/></td>
-	          		<td><a class="btn btn-default" href="<%= basePath %>documentDownload.action?hid=<s:property value="#c.hid"/>&course_id=<s:property value="%{#session.course_id}"/>" role="button">详细 &raquo;</a></td>
+	          		<td><a class="btn btn-default" href="<%= basePath %>documentDownloadList.action?hid=<s:property value="#c.hid"/>&course_id=<s:property value="%{#session.course_id}"/>" role="button">详细 &raquo;</a></td>
 	          	</tr>
 	          </s:iterator>
 	          </table>

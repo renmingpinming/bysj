@@ -22,4 +22,5 @@ public class DocumentDaoImpl extends HibernateDaoSupport implements DocumentDao 
 		return list;
 	}
 
+
 }

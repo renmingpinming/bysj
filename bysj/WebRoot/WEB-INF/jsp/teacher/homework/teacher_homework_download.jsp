@@ -70,13 +70,15 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             <h2><s:property value="%{model.title}"/></h2>
             <div><s:property value="%{model.content}"/></div>
           </div>
+          
           <table>
+          	<s:iterator value="list" var="document">
           	<tr>
-          		<td>2</td>
+          		<td>
+          			<a href="documentDownload.action?fileName=<s:property value="#document.filename"/>"><s:property value="#document.filename"/></a>
+          		</td>
           	</tr>
-          	<tr>
-          		<td>2</td>
-          	</tr>
+          	</s:iterator>
           </table>
         </div><!--/.col-xs-12.col-sm-9-->
         <div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar">
