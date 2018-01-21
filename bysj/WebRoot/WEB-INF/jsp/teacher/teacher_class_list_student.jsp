@@ -22,7 +22,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	
   </head>
   
-  <body>
+  <body style="background: url('images/bg.jpg'); background-repeat:no-repeat;background-size:100% 100%;background-attachment: fixed;">
   <nav class="navbar navbar-default">
       <div class="container">
         <div class="navbar-header">
@@ -71,7 +71,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	          <th>性别</th>
 	          <th>电话</th>
 	          <th>邮箱</th>
-	          <th>删除</th>
 	        </tr>
 	      </thead>
 	      <tbody>
@@ -83,7 +82,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		          <td><s:property value="#s.sex"/></td>
 		          <td><s:property value="#s.telephone"/></td>
 		          <td><s:property value="#s.email"/></td>
-		          <td>sit</td>
 		         </tr>
 	         </s:iterator>
 	       </tbody>

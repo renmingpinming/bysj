@@ -24,7 +24,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	
   </head>
   
-  <body>
+  <body style="background: url('images/bg3.jpg'); background-repeat:no-repeat;background-size:100% 100%;background-attachment: fixed;">
   
   <nav class="navbar navbar-default">
       <div class="container">
@@ -67,7 +67,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
           <p class="pull-right visible-xs">
             <button type="button" class="btn btn-primary btn-xs" data-toggle="offcanvas">Toggle nav</button>
           </p>
-          <h2>学生主题</h2>
+          <h2>老师主题</h2>
           	<ul>
 		    <s:iterator value="pageBean.list" var="topic">
 	        <li>

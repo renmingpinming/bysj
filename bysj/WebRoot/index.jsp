@@ -29,7 +29,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	</style>
   </head>
   
-  <body>
+  <body style="background: url('images/bg5.jpg'); background-repeat:no-repeat;background-size:100% 100%;background-attachment: fixed;">
   <div class="container">
       <s:form class="form-signin" action="login.action" method="post" theme="simple">
       
