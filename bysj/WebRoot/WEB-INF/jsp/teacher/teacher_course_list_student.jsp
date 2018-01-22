@@ -71,6 +71,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	          <th>性别</th>
 	          <th>电话</th>
 	          <th>邮箱</th>
+	          <th>删除</th>
 	        </tr>
 	      </thead>
 	      <tbody>
@@ -82,6 +83,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		          <td><s:property value="#s.sex"/></td>
 		          <td><s:property value="#s.telephone"/></td>
 		          <td><s:property value="#s.email"/></td>
+		          <td><a href="<%= basePath %>teacherCourseDeleteStudent.action?sid=<s:property value="#s.sid"/>&cid=<s:property value="%{model.cid}"/>">删除</a> </td>
 		         </tr>
 	         </s:iterator>
 	       </tbody>

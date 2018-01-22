@@ -136,7 +136,7 @@ public class Test2 {
 			}
 		}
 		
-		@Test
+		//@Test
 		public void test6() {
 			String conf = "applicationContext.xml";
 			ApplicationContext ac = new ClassPathXmlApplicationContext(conf);
@@ -164,6 +164,20 @@ public class Test2 {
 			Homework h = homeworkDao.getByCourseIdAndHid(1001, 1004);
 			System.out.println(h.getTitle());
 		}
+		
+		@Test
+		public void test7() {
+			String conf = "applicationContext.xml";
+			ApplicationContext ac = new ClassPathXmlApplicationContext(conf);
+			StudentDao studentDao = (StudentDao) ac.getBean("StudentDao");
+			CourseDao courseDao = (CourseDao) ac.getBean("CourseDao");
+			ClassnameDao classnameDao = (ClassnameDao) ac.getBean("ClassnameDao");
+			//studentDao.deleteClno(20140112);
+			//studentDao.deleteCourse(20140112, 1001);
+			//classnameDao.deleteTno(1003);
+			courseDao.deleteTno(1002);
+		}
 	
 	
+
 }

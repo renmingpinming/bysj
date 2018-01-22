@@ -45,6 +45,8 @@ public class StudentEditImformationAction extends ActionSupport implements Model
 	}
 	
 	public String update(){
+		System.out.println(student.getSname());
+		System.out.println("-------------------------------------------------");
 		studentService.update(student);
 		return "success";
 	}

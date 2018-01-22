@@ -2,6 +2,10 @@ package zhou.yi.dao.Impl;
 
 import java.util.List;
 
+import org.hibernate.Query;
+import org.hibernate.SQLQuery;
+import org.hibernate.Session;
+import org.hibernate.Transaction;
 import org.hibernate.criterion.DetachedCriteria;
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 
@@ -68,7 +72,32 @@ public class StudentDaoImpl extends HibernateDaoSupport implements StudentDao {
 		return list;
 	}
 
+	@Override
+	public void deleteClno(int sid) {
+		Session s = this.getHibernateTemplate().getSessionFactory().openSession();
+		String sql = "update student set clno = NULL where sid = ?";
+		Transaction trans = s.beginTransaction();
+		trans.begin();
+		SQLQuery sQLQuery = s.createSQLQuery(sql);
+		sQLQuery.setInteger(0, sid);
+		sQLQuery.executeUpdate();
+		trans.commit();
+		s.close();
+	}
 
+	@Override
+	public void deleteCourse(int sid, int cid) {
+		Session s = this.getHibernateTemplate().getSessionFactory().openSession();
+		String sql = "delete from connect where sid = ? and cid = ?";
+		Transaction trans = s.beginTransaction();
+		trans.begin();
+		SQLQuery sQLQuery = s.createSQLQuery(sql);
+		sQLQuery.setInteger(0, sid);
+		sQLQuery.setInteger(1, cid);
+		sQLQuery.executeUpdate();
+		trans.commit();
+		s.close();
+	}
 
-
+	
 }

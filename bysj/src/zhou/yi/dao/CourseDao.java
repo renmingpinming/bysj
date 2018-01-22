@@ -24,4 +24,6 @@ public interface CourseDao {
 	public void saveCourse(Course course);
 
 	public void deleteCourse(Course course);
+	
+	public void deleteTno(int cid);
 }

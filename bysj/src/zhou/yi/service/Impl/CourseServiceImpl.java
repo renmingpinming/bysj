@@ -62,6 +62,12 @@ public class CourseServiceImpl implements CourseService {
 	}
 
 
+	@Override
+	public void deleteTno(Integer cid) {
+		courseDao.deleteTno(cid);
+	}
+
+
 
 
 }

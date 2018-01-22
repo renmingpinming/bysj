@@ -24,4 +24,6 @@ public interface ClassnameDao {
 	public void saveClassname(Classname classname);
 	
 	public void deleteClassname(Classname classname);
+	
+	public void deleteTno(int id);
 }

@@ -55,4 +55,9 @@ public class ClassnameServiceImpl implements ClassnameService {
 		classnameDao.deleteClassname(classname);
 	}
 
+	@Override
+	public void deleteTid(Integer id) {
+		classnameDao.deleteTno(id);
+	}
+
 }

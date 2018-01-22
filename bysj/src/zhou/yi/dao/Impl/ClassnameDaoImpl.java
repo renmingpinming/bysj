@@ -4,6 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
+import org.hibernate.SQLQuery;
+import org.hibernate.Session;
+import org.hibernate.Transaction;
 import org.hibernate.criterion.DetachedCriteria;
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 
@@ -76,6 +79,19 @@ public class ClassnameDaoImpl extends HibernateDaoSupport implements ClassnameDa
 	@Override
 	public void deleteClassname(Classname classname) {
 		getHibernateTemplate().delete(classname);
+	}
+
+	@Override
+	public void deleteTno(int id) {
+		Session s = this.getHibernateTemplate().getSessionFactory().openSession();
+		String sql = "update classname set tno = NULL where id = ?";
+		Transaction trans = s.beginTransaction();
+		trans.begin();
+		SQLQuery sQLQuery = s.createSQLQuery(sql);
+		sQLQuery.setInteger(0, id);
+		sQLQuery.executeUpdate();
+		trans.commit();
+		s.close();
 	}
 
 }

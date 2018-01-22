@@ -75,6 +75,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	          	 <div class="col-xs-6 col-lg-4">
 	              <h2><s:property value="#c.name"/></h2>
 	              <p><a class="btn btn-default" href="<%= basePath %>teacherClassListStudent.action?id=<s:property value="#c.id"/>" role="button">显示学生 &raquo;</a></p>
+	              <p><a class="btn btn-default" href="<%= basePath %>teacherDeleteClass.action?id=<s:property value="#c.id"/>" role="button">删除班级 &raquo;</a></p>
+	          
 	            </div><!--/.col-xs-6.col-lg-4-->
              </s:iterator>
           </div><!--/row-->

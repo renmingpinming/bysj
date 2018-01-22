@@ -5,6 +5,9 @@ import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Set;
 
+import org.hibernate.SQLQuery;
+import org.hibernate.Session;
+import org.hibernate.Transaction;
 import org.hibernate.criterion.DetachedCriteria;
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 
@@ -76,6 +79,19 @@ public class CourseDaoImpl extends HibernateDaoSupport implements CourseDao {
 	@Override
 	public void deleteCourse(Course course) {
 		getHibernateTemplate().delete(course);
+	}
+
+	@Override
+	public void deleteTno(int cid) {
+		Session s = this.getHibernateTemplate().getSessionFactory().openSession();
+		String sql = "update course set tno = NULL where cid = ?";
+		Transaction trans = s.beginTransaction();
+		trans.begin();
+		SQLQuery sQLQuery = s.createSQLQuery(sql);
+		sQLQuery.setInteger(0, cid);
+		sQLQuery.executeUpdate();
+		trans.commit();
+		s.close();
 	}
 
 

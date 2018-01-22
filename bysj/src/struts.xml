@@ -75,7 +75,7 @@
 		</action>
 		
 		<action name="teacherAddCourseUpdate" class="TeacherAddCourseAction" method="update">
-			<result name="success" type="redirectAction">teacher_main</result>
+			<result name="success" type="redirectAction">teacherListCoursePage</result>
 		</action>
 		
 		<action name="teacherAddClassList" class="TeacherAddClassAction" method="list">
@@ -83,7 +83,7 @@
 		</action>
 		
 		<action name="teacherAddClassUpdate" class="TeacherAddClassAction" method="update">
-			<result name="success" type="redirectAction">teacher_main</result>
+			<result name="success" type="redirectAction">teacherListClassPage</result>
 		</action>
 		
 		<action name="studentListCoursePage" class="StudentListCourseAction" method="showPage">
@@ -304,6 +304,22 @@
 			<result name="success" type="redirectAction">studentHomeworkMain</result>
 			<param name="maximumSize">1000000</param>  
             <param name="allowedTypes">text/plain,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document</param>
+		</action>
+		
+		<action name="teacherClassDeleteStudent" class="TeacherClassDeleteStudentAction">
+			<result name="success" type="redirectAction">teacherListClassPage</result>
+		</action>
+		
+		<action name="teacherCourseDeleteStudent" class="TeacherCourseDeleteStudentAction">
+			<result name="success" type="redirectAction">teacherListCoursePage</result>
+		</action>
+		
+		<action name="teacherDeleteClass" class="TeacherDeleteClassAction">
+			<result name="success" type="redirectAction">teacherListClassPage</result>
+		</action>
+		
+		<action name="teacherDeleteCourse" class="TeacherDeleteCourseAction">
+			<result name="success" type="redirectAction">teacherListCoursePage</result>
 		</action>
 
 	</package>

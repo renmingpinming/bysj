@@ -21,7 +21,7 @@ public class Student {
 	private Classname classname;
 	//ËùÉÏ¿Î³Ì
 	private Set<Course> courses = new LinkedHashSet<Course>();
-	
+
 	public Set<Course> getCourses() {
 		return courses;
 	}

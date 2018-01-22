@@ -54,5 +54,15 @@ public class StudentServiceImpl implements StudentService {
 	public void deleteStudent(Student student) {
 		studentDao.delete(student);
 	}
+
+	@Override
+	public void deleteClno(int sid) {
+		studentDao.deleteClno(sid);
+	}
+
+	@Override
+	public void deleteCourse(Integer sid, Integer cid) {
+		studentDao.deleteCourse(sid, cid);
+	}
 	
 }

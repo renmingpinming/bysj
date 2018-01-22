@@ -17,4 +17,6 @@ public interface ClassnameService {
 
 	void deleteClassname(Classname classname);
 
+	void deleteTid(Integer id);
+
 }

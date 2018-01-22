@@ -17,5 +17,7 @@ public interface CourseService {
 
 	void deleteCourse(Course course);
 
+	void deleteTno(Integer cid);
+
 
 }

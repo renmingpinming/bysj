@@ -22,6 +22,9 @@ public interface StudentDao {
 	public int findCount();
 
 	public List<Student> findByPage(int begin, int pageSize);
-
+	
+	public void deleteClno(int sid);
+	
+	public void deleteCourse(int sid, int cid);
 
 }

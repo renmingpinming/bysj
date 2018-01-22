@@ -334,6 +334,24 @@
 	 	<property name="documentService" ref="DocumentService"></property>	
 	</bean>
 	
-
+	<bean id="TeacherClassDeleteStudentAction" scope="prototype"
+	 class="zhou.yi.action.teacher.TeacherClassDeleteStudentAction">
+	 	<property name="studentService" ref="StudentService"></property>
+	</bean>
+	
+	<bean id="TeacherCourseDeleteStudentAction" scope="prototype"
+	 class="zhou.yi.action.teacher.TeacherCourseDeleteStudentAction">
+	 	<property name="studentService" ref="StudentService"></property>
+	</bean>
+	
+	<bean id="TeacherDeleteClassAction" scope="prototype"
+	 class="zhou.yi.action.teacher.TeacherDeleteClassAction">
+	 	<property name="classnameService" ref="ClassnameService"></property>
+	</bean>
+	
+	<bean id="TeacherDeleteCourseAction" scope="prototype"
+	 class="zhou.yi.action.teacher.TeacherDeleteCourseAction">
+	 	<property name="courseService" ref="CourseService"></property>
+	</bean>
 
 </beans>

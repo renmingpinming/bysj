@@ -15,4 +15,8 @@ public interface StudentService {
 
 	void deleteStudent(Student student);
 
+	void deleteClno(int sid);
+
+	void deleteCourse(Integer sid, Integer cid);
+
 }
