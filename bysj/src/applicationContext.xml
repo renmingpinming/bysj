@@ -302,6 +302,11 @@
 	 	<property name="questionService" ref="QuestionService"></property>
 	</bean>
 	
+	<bean id="TopicSearchAllAction" scope="prototype"
+	 class="zhou.yi.action.question.TopicSearchAllAction">
+	 	<property name="questionService" ref="QuestionService"></property>
+	</bean>
+	
 	<bean id="CommentAddAction" scope="prototype"
 	 class="zhou.yi.action.comment.CommentAddAction">
 	 	<property name="questionService" ref="QuestionService"></property>

@@ -141,5 +141,37 @@ public class QuestionDaoImpl extends HibernateDaoSupport implements QuestionDao 
 			return list;
 	}
 
+	@Override
+	public List<Question> searchAllByKey(final int begin, final int pageSize, final String key) {
+		List<Question> list = getHibernateTemplate().execute(
+				new HibernateCallback() {
+
+					@Override
+					public Object doInHibernate(Session session)
+							throws HibernateException, SQLException {
+						String hql = "from Question where title like ? or content like ? order by create_time desc";
+						Query query = session.createQuery(hql);
+						query.setParameter(0, "%"+key+"%");
+						query.setParameter(1, "%"+key+"%");
+						query.setFirstResult(begin);
+						query.setMaxResults(pageSize);
+						return query.list();
+					}
+				}
+				);
+			return list;
+	}
+
+	@Override
+	public int findKeyCount(String key) {
+		Object[] params = {"%"+key+"%","%"+key+"%"};
+		String hql = "select count(*) from Question where title like ? or content like ?";
+		List<Long> list =  getHibernateTemplate().find(hql,params);
+		if(list.size()>0){
+			return list.get(0).intValue();
+		}
+		return 0;
+	}
+
 	
 }

@@ -30,4 +30,8 @@ public interface QuestionDao {
 	public int findStuCount();
 
 	public List<Question> getStuByPage(int begin, int pageSize);
+	
+	public List<Question> searchAllByKey(int begin, int pageSize,String key);
+	
+	public int findKeyCount(String key);
 }

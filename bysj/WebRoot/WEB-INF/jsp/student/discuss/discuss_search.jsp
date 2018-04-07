@@ -99,12 +99,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					每页显示<s:property value="pageBean.pageSize"/>&nbsp;&nbsp;
 				<span>
 	  		   <s:if test="pageBean.currPage != 1">   
-			       <a href="<%= basePath%>studentTopicGetAll.action?currPage=1">[首页]</a>&nbsp;&nbsp;
-			       <a href="<%= basePath%>studentTopicGetAll.action?currPage=<s:property value="pageBean.currPage-1"/>">[上一页]</a>&nbsp;&nbsp;
+			       <a href="<%= basePath%>studentTopicSearchAll.action?currPage=1&key=<s:property value="#session.exitKey"/>">[首页]</a>&nbsp;&nbsp;
+			       <a href="<%= basePath%>studentTopicSearchAll.action?currPage=<s:property value="pageBean.currPage-1"/>&key=<s:property value="#session.exitKey"/>">[上一页]</a>&nbsp;&nbsp;
 			   </s:if>
 			   <s:if test="pageBean.currPage != pageBean.totalPage"> 
-			       <a href="<%= basePath%>studentTopicGetAll.action?currPage=<s:property value="pageBean.currPage+1"/>">[下一页]</a>&nbsp;&nbsp;
-			       <a href="<%= basePath%>studentTopicGetAll.action?currPage=<s:property value="pageBean.totalPage"/>">[尾页]</a>&nbsp;&nbsp;
+			       <a href="<%= basePath%>studentTopicSearchAll.action?currPage=<s:property value="pageBean.currPage+1"/>&key=<s:property value="#session.exitKey"/>">[下一页]</a>&nbsp;&nbsp;
+			       <a href="<%= basePath%>studentTopicSearchAll.action?currPage=<s:property value="pageBean.totalPage"/>&key=<s:property value="#session.exitKey"/>">[尾页]</a>&nbsp;&nbsp;
 			   </s:if>
 			   </span>
 				</td>

@@ -246,6 +246,14 @@
 			<result name="success" type="redirectAction">studentTopicGetAll</result>
 		</action>
 		
+		<action name="teacherTopicSearchAll" class="TopicSearchAllAction" method="searchAllByKey">
+			<result name="success">/WEB-INF/jsp/teacher/discuss/discuss_search.jsp</result>
+		</action>
+		
+		<action name="studentTopicSearchAll" class="TopicSearchAllAction" method="searchAllByKey">
+			<result name="success">/WEB-INF/jsp/student/discuss/discuss_search.jsp</result>
+		</action>
+		
 		<action name="teacherCommentAdd" class="CommentAddAction" method="teacher">
 			<result name="success" type="redirectAction">
   				<param name="actionName">teacherTopicDetail</param>

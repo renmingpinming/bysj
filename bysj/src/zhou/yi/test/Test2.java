@@ -165,7 +165,7 @@ public class Test2 {
 			System.out.println(h.getTitle());
 		}
 		
-		@Test
+		//@Test
 		public void test7() {
 			String conf = "applicationContext.xml";
 			ApplicationContext ac = new ClassPathXmlApplicationContext(conf);
@@ -178,6 +178,29 @@ public class Test2 {
 			courseDao.deleteTno(1002);
 		}
 	
-	
+		//@Test
+				public void test8() {
+					String conf = "applicationContext.xml";
+					ApplicationContext ac = new ClassPathXmlApplicationContext(conf);
+					QuestionDao questionDao = (QuestionDao) ac.getBean("QuestionDao");
+					List<Question> list2 = questionDao.searchAllByKey(0, 2, "Äã");
+					for (Question question : list2) {
+						System.out.println(question.getTitle());
+					}
+					String key = "Äã";
+					final String s = "?"+key+"?";
+					System.out.println(s);
+
+				}
+				
+				@Test
+				public void test9() {
+					String conf = "applicationContext.xml";
+					ApplicationContext ac = new ClassPathXmlApplicationContext(conf);
+					QuestionDao questionDao = (QuestionDao) ac.getBean("QuestionDao");
+					int count;
+					count = questionDao.findKeyCount("ÎÒ");
+					System.out.println(count);
+				}
 
 }

@@ -60,6 +60,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </nav>
   
   <div class="container">
+  	<h2>所有主题</h2>
+  	<form class="navbar-form navbar-left" action="teacherTopicSearchAll.action" method="post">
+		<div class="form-group">
+	    	<input name="key" type="text" class="form-control" placeholder="请输入关键字">
+	    </div>
+	    <button type="submit" class="btn btn-default">查找</button>
+    </form>
 
       <div class="row row-offcanvas row-offcanvas-right">
 
@@ -67,7 +74,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
           <p class="pull-right visible-xs">
             <button type="button" class="btn btn-primary btn-xs" data-toggle="offcanvas">Toggle nav</button>
           </p>
-          <h2>所有主题</h2>
+
           <ul>
 		        <s:iterator value="pageBean.list" var="topic">
 		        <li>

@@ -81,5 +81,22 @@ public class QuestionServiceImpl implements QuestionService {
 	public void saveTopic(Question question) {
 		questionDao.saveQuestion(question);
 	}
+
+	@Override
+	public PageBean<Question> searchAllByKey(Integer currPage, String key) {
+		PageBean<Question> pageBean = new PageBean<Question>();
+		pageBean.setCurrPage(currPage);
+		int pageSize = 2;
+		pageBean.setPageSize(pageSize);
+		int totalCount = questionDao.findKeyCount(key);
+		pageBean.setTotalCount(totalCount);
+		double tc = totalCount;
+		Double num = Math.ceil(tc / pageSize);
+		pageBean.setTotalPage(num.intValue());
+		int begin = (currPage - 1) * pageSize;
+		List<Question> list = questionDao.searchAllByKey(begin, pageSize, key);
+		pageBean.setList(list);
+		return pageBean;
+	}
 	
 }
