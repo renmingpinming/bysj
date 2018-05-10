@@ -329,7 +329,36 @@
 		<action name="teacherDeleteCourse" class="TeacherDeleteCourseAction">
 			<result name="success" type="redirectAction">teacherListCoursePage</result>
 		</action>
+		
+		<action name="deparementTeacherEditList" class="DeparementTeacherEditListAction" method="list">
+			<result name="success">/WEB-INF/jsp/department/department_teacher_edit_list.jsp</result>
+		</action>
+		
+		<action name="deparementTeacherUpdate" class="DeparementTeacherEditListAction" method="update">
+			<result name="success" type="redirectAction">department_main</result>
+		</action>
+		
+		<action name="deparementStudentEditList" class="DeparementStudentEditListAction" method="list">
+			<result name="success">/WEB-INF/jsp/department/department_student_edit_list.jsp</result>
+		</action>
+		
+		<action name="deparementStudentUpdate" class="DeparementStudentEditListAction" method="update">
+			<result name="success" type="redirectAction">department_main</result>
+		</action>
+		
+		<action name="teacherEditStudentList" class="TeacherEditStudentAction" method="list">
+			<result name="success">/WEB-INF/jsp/teacher/teacher_edit_student_list.jsp</result>
+		</action>
+		
+		<action name="teacherEditStudentUpdate" class="TeacherEditStudentAction" method="update">
+			<result name="success" type="redirectAction">teacher_main</result>
+		</action>
+		
+		<action name="studentDeleteCourse" class="StudentDeleteCourseAction">
+			<result name="success" type="redirectAction">student_main</result>
+		</action>
 
+	
 	</package>
    
 </struts>

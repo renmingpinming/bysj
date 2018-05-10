@@ -10,7 +10,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <head>
     <base href="<%=basePath%>">
     
-    <title>学生列表</title>
+    <title>主页</title>
     
 	<link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css"
           integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
@@ -19,7 +19,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"
             integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
             crossorigin="anonymous"></script>
-	
+	<style type="text/css">
+    .form-signin{
+    width: 600px;
+    margin-left: 280px;
+    }
+    </style>
   </head>
   
   <body style="background: url('images/bg.jpg'); background-repeat:no-repeat;background-size:100% 100%;background-attachment: fixed;">
@@ -36,9 +41,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-          	<li><a href="<%= basePath %>teacher_main.action"">主页</a></li>
+          	<li class="active"><a href="<%= basePath %>teacher_main.action">主页</a></li>
             <li><a href="<%= basePath %>teacherListClassPage.action">分组管理</a></li>
-            <li class="active"><a href="<%= basePath %>teacherListCoursePage.action">课程管理</a></li>
+            <li><a href="<%= basePath %>teacherListCoursePage.action">课程管理</a></li>
             <li><a href="<%= basePath %>teacherHomeworkMain.action">作业管理</a></li>
             <li><a href="<%= basePath %>teacherTopicGetAll.action">文章发布</a></li>
           </ul>
@@ -56,41 +61,42 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         </div><!--/.nav-collapse -->
       </div>
   </nav>
-  
-  
-  <div class="container">
-  	
-	<div class="table-responsive">
-		<h1><s:property value="%{model.cname}"/>--学生名单</h1>
-	    <table class="table table-striped">
-	      <thead>
-	        <tr>
-	          <th>学号</th>
-	          <th>姓名</th>
-	        <!--    <th>班级</th> -->
-	          <th>性别</th>
-	          <th>电话</th>
-	          <th>邮箱</th>
-	          <th>修改</th>
-	          <th>删除</th>
-	        </tr>
-	      </thead>
-	      <tbody>
-	        <s:iterator value="%{model.students}" var="s">
-		        <tr>
-		          <td><s:property value="#s.sid"/></td>
-		          <td><s:property value="#s.sname"/></td>
-		       <!--     <td><s:property value="#s.classname.name"/></td> -->
-		          <td><s:property value="#s.sex"/></td>
-		          <td><s:property value="#s.telephone"/></td>
-		          <td><s:property value="#s.email"/></td>
-		          <td><a href="<%= basePath %>teacherEditStudentList.action?sid=<s:property value="#s.sid"/>&cid=<s:property value="%{model.cid}"/>">修改</a> </td>
-		          <td><a href="<%= basePath %>teacherCourseDeleteStudent.action?sid=<s:property value="#s.sid"/>&cid=<s:property value="%{model.cid}"/>">删除</a> </td>
-		         </tr>
-	         </s:iterator>
-	       </tbody>
-	    </table>
-  	 </div>
+	<div class="container">
+
+      <s:form class="form-signin" action="teacherEditStudentUpdate.action" method="post" theme="simple">
+        <h1>个人信息</h1>
+       <table class="table table-striped">
+       <s:hidden name="sid" value="%{model.sid}"/>
+       <s:hidden name="password" value="%{model.password}"/>
+       	<tr>
+       		<td>姓名：</td>
+       		<td><s:textfield name="sname" class="form-control" value="%{model.sname}"/></td>
+       	</tr>
+       	<tr>
+       		<td>班级：</td>
+       		<td>
+       			<s:select list="list" value="%{model.classname.id}" name="classname.id" listKey="id" listValue="name" headerKey="0" headerValue="请选择班级" class="radio-inline"></s:select>
+       		</td>
+       	</tr>
+       	<tr>
+       		<td>性别：</td>
+       		<td>
+       	
+       			<s:radio name="sex" class="radio-inline" list="{'男','女'}" value="%{model.sex}"></s:radio>
+       	
+       		</td>
+       	</tr>
+       	<tr>
+       		<td>电话：</td>
+       		<td><s:textfield name="telephone" class="form-control" value="%{model.telephone}"/></td>
+       	</tr>
+       	<tr>
+       		<td>email：</td>
+       		<td><s:textfield name="email" class="form-control" value="%{model.email}"/></td>
+       	</tr>
+       </table>
+       <button class="btn btn-lg btn-primary center-block" type="submit">提交</button>
+     </s:form>
     </div>
   </body>
 </html>

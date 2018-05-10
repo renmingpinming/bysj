@@ -22,15 +22,20 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	
 	<style type="text/css">
 	.container{
-	 width: 300px;
+	 width: 400px;
     margin: 0 auto;
+	}
+	h1{
+	text-align: center;
 	}
 	
 	</style>
   </head>
   
   <body style="background: url('images/bg5.jpg'); background-repeat:no-repeat;background-size:100% 100%;background-attachment: fixed;">
+  <h1>师生互动交流平台</h1>
   <div class="container">
+  
       <s:form class="form-signin" action="login.action" method="post" theme="simple">
       
         <h2 class="form-signin-heading">欢迎登录</h2>
@@ -39,7 +44,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         <s:password name="password" class="form-control" placeholder="密码"/>
         <div class="checkbox" align="left">
           <label>
-            <s:radio name="ptype" class="radio-inline" list="{'部门','教师','学生'}"></s:radio>
+            <s:radio name="ptype" class="radio-inline" list="{'管理员','教师','学生'}"></s:radio>
           </label>
         </div>
         <button class="btn btn-lg btn-primary btn-block" type="submit">登录</button>

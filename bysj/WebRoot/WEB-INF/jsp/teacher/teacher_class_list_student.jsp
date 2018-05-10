@@ -67,10 +67,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	        <tr>
 	          <th>学号</th>
 	          <th>姓名</th>
-	          <th>班级</th>
+	      <!--     <th>班级</th> -->
 	          <th>性别</th>
 	          <th>电话</th>
 	          <th>邮箱</th>
+	          <th>修改</th>
 	          <th>删除</th>
 	        </tr>
 	      </thead>
@@ -79,10 +80,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		        <tr>
 		          <td><s:property value="#s.sid"/></td>
 		          <td><s:property value="#s.sname"/></td>
-		          <td><s:property value="#s.classname.name"/></td>
+		      <!--    <td><s:property value="#s.classname.name"/></td>  -->
 		          <td><s:property value="#s.sex"/></td>
 		          <td><s:property value="#s.telephone"/></td>
 		          <td><s:property value="#s.email"/></td>
+		          <td><a href="<%= basePath %>teacherEditStudentList.action?sid=<s:property value="#s.sid"/>">修改</a> </td>
 		          <td><a href="<%= basePath %>teacherClassDeleteStudent.action?sid=<s:property value="#s.sid"/>">删除</a> </td>
 		         </tr>
 	         </s:iterator>

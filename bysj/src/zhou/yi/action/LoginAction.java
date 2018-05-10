@@ -79,7 +79,7 @@ public class LoginAction extends ActionSupport {
 				return "success_student";
 			}
 		}
-		else if(ptype.equals("部门")){
+		else if(ptype.equals("管理员")){
 			Department exitDepartment = loginService.login_department(user_id,password);
 			if(exitDepartment==null){
 				this.addActionError("用户名或密码错误！");
